@@ -3,7 +3,7 @@
         <div class="login_box">
             <!-- logo -->
             <div class="logo">
-                <img src="../../assets/images/logo.jpg"/>
+                <img src="../../assets/images/logo.jpg" alt=""/>
             </div>
             <!-- 登录表单 -->
             <div>
@@ -34,15 +34,19 @@
                 </el-form>
             </div>
         </div>
+        <myFooter></myFooter>
     </div>
 </template>
 
 <script>
+    import myFooter from '../../components/myFooter'
+
     export default {
         name: "Login",
+        components: {myFooter},
         data() {
             var validatePassword = (rule, value, callback) => {
-                var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
+                var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
                 if (value === '') {
                     callback(new Error('请输入密码'));
                 } else if (!reg.test(this.loginForm.password)) {
@@ -83,7 +87,7 @@
 <style scoped>
     .login_container {
         height: 100%;
-        background-color: #019058;
+        background-color: #A0CFFF;
     }
 
     .login_box {

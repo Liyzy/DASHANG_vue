@@ -3,7 +3,7 @@
         <div class="register_box">
             <!-- logo -->
             <div class="logo">
-                <img src="../../assets/images/logo.jpg"/>
+                <img src="../../assets/images/logo.jpg" alt=""/>
             </div>
             <!-- 注册表单 -->
             <div>
@@ -35,12 +35,15 @@
                 </el-form>
             </div>
         </div>
+        <myFooter></myFooter>
     </div>
 </template>
 
 <script>
+    import myFooter from "../../components/myFooter";
     export default {
         name: "register",
+        components: {myFooter},
         data() {
             // 检查密码格式
             var validatePassword = (rule, value, callback) => {
@@ -89,6 +92,7 @@
         methods: {
             register() {
                 // 注册逻辑代码
+                this.$router.push({path: '/login'});
             }
         }
     }
@@ -97,7 +101,7 @@
 <style scoped>
     .register_container {
         height: 100%;
-        background-color: #019058;
+        background-color: #A0CFFF;
     }
 
     .register_box {
