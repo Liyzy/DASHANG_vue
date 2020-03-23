@@ -1,4 +1,5 @@
 <template>
+    <div class="mailHome">
     <el-container>
       <el-header class="mailHeader">
           <!-- Header content -->
@@ -7,9 +8,13 @@
         </el-header>
 
         <el-main class="mailMain">
-          <!-- Main content -->
-<!--          <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=1)" width="100%" color=#87CEFA SIZE=3>-->
-          <div class="mailMainB"><left></left></div>
+<!--            <div class="mailMainA">-->
+<!--          &lt;!&ndash; Main content &ndash;&gt;-->
+<!--&lt;!&ndash;          <hr style="FILTER: alpha(opacity=100,finishopacity=0,style=1)" width="100%" color=#87CEFA SIZE=3>&ndash;&gt;-->
+<!--                <div class="mailMainB">-->
+                    <left></left>
+<!--                </div>-->
+<!--            </div>-->
         </el-main>
 
         <el-footer class="mailFooter">
@@ -19,6 +24,7 @@
         </el-footer>
 
       </el-container>
+    </div>
 </template>
 
 <script>
@@ -54,6 +60,11 @@ export default {
   /*  background-color: cornsilk;*/
   /*  opacity: 0.85;*/
   /*}*/
+  .mailHome{
+      height: 100%;
+      width: 100%;
+      position: fixed;
+  }
     .mailHeader{
         height: 100%;
         background-color: #373f41;
@@ -61,23 +72,40 @@ export default {
         align-items: center;
     }
     .mailMain{
-        height: 720px;
-        height:fit-content;
-        background-image: url('./mail_assets/back1.jpg');
-        background-size: 100% 100%;
+        height: 100%;
+        /*height:fit-content;*/
+        padding: 0;
+        margin: 0;
+        /*position: relative;*/
+        /*background-image: url("../../assets/images/background/loginbackground.jpg") ;*/
+        /*background-size: 100% 100%;*/
     }
-    .mailMainB{
-        padding: 0px;
-        margin: -20px;
-        height: 720px;
-        height:fit-content;
-        background: cornsilk;
-        /*background: #fff;*/
-        opacity: 0.85;
-    }
+    /*.mailMainA{*/
+    /*    !*height: 100%;*!*/
+    /*    !*width: 100%;*!*/
+    /*    !*padding: 0;*!*/
+    /*    !*margin: 0;*!*/
+    /*    !*position: relative;*!*/
+    /*    background: cornsilk;*/
+    /*    opacity: 0.65;*/
+    /*}*/
+    /*.mailMainB{*/
+    /*    !*padding: 0px;*!*/
+    /*    !*margin: 0px;*!*/
+    /*    !*height: 100%;*!*/
+    /*    !*width: 100%;*!*/
+    /*    !*position: fixed;*!*/
+    /*    !*height:fit-content;*!*/
+    /*    background: transparent;*/
+    /*    !*background: #fff;*!*/
+    /*    !*opacity: 0.85;*!*/
+    /*}*/
     .mailFooter{
         height: 100%;
+        width: 100%;
         background-color: #373f41;
+        position:absolute;
+        bottom:0%;
         display: flex;
         align-items: center;
     }

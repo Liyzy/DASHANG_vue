@@ -5,6 +5,8 @@ import login from '../views/user_management/login';
 import register from '../views/user_management/register';
 import registeP from '../views/vendor_management/registeP.vue';
 import mail_main from "../views/mail_management/mail_main";
+import modifyInfo from "../views/user_management/modifyInfo";
+import userHome from "../views/task_management/page/user/userHome";
 
 Vue.use(VueRouter)
 
@@ -16,7 +18,10 @@ const routes = [
   {
     path: '/login',
     name: '登录',
-    component: login
+    component: login,
+    meta:{
+      title:"大商电器代理服务平台-登录"
+    }
   },
   {
     path: '/register',
@@ -37,6 +42,16 @@ const routes = [
     path: '/mail',
     name: 'mail_main',
     component: mail_main
+  },
+  {
+    path: '/modifyInfo',
+    name: 'modifyInfo',
+    component: modifyInfo
+  },
+  {
+    path: '/userHome',
+    name: 'userHome',
+    component: userHome
   }
 ]
 

@@ -1,6 +1,7 @@
 <template>
     <div class="userMain">
         <el-tabs type="border-card" :tab-position="tabPosition" style="height: 100%;">
+            <el-tab-pane><span slot="label"><i class="el-icon-s-custom"></i> <span style="font-size: 14px;">用户主页</span></span><userHome></userHome></el-tab-pane>
             <el-tab-pane><span slot="label"><i class="el-icon-s-goods"></i> <span style="font-size: 14px;">商品货架</span></span>我的行程</el-tab-pane>
             <el-tab-pane><span slot="label"><i class="el-icon-s-shop"></i> <span style="font-size: 14px;">品牌展示</span></span>我的行程</el-tab-pane>
             <el-tab-pane><span slot="label"><i class="el-icon-s-order"></i> <span style="font-size: 14px;">我的订单</span></span>我的行程</el-tab-pane>
@@ -10,8 +11,10 @@
 </template>
 
 <script>
+    import userHome from "./user/userHome";
     export default {
         name: "User",
+        components: {userHome},
         data() {
             return {
                 tabPosition: 'left'
@@ -22,14 +25,22 @@
 
 <style scoped>
     .userMain{
-        margin-top:-20px;
-        margin-left:-20px;
-        margin-right:-20px;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        position: fixed;
+        /*border-width: 0;*/
+    /*    margin-top:-20px;*/
+    /*    margin-left:-20px;*/
+    /*    margin-right:-20px;*/
 
-        height: 718px;
-        align-content:stretch;
+    /*    height: 718px;*/
+    /*    align-content:stretch;*/
     }
-    .el-tab-pane{
-        font-size:60px;
-    }
+    /*.el-tab-pane{*/
+    /*    height: 100%;*/
+    /*    width: 100%;*/
+    /*    padding: 0;*/
+    /*    margin: 0;*/
+    /*}*/
 </style>

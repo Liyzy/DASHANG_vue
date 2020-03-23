@@ -1,5 +1,5 @@
 <template>
-  <div id="welcome">
+  <div class="mailWelcome">
     <h3>欢迎您，{{username}}</h3>
     <div>共有 {{num}} 封 <a href="" value="未读邮件">未读邮件</a></div>
   </div>
@@ -15,3 +15,11 @@ export default {
   }
 };
 </script>
+<style scoped>
+  mailWelcome{
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*padding: 0;*/
+    /*position: fixed;*/
+  }
+</style>

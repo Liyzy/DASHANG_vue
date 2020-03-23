@@ -46,42 +46,42 @@
 
 <style scoped>
 
-    .el-footer{
-        background-color: #373f41;
-        color: #fff;
-        font-size: 14px;
-        text-align: center;
-    }
+/*    .el-footer{*/
+/*        background-color: #373f41;*/
+/*        color: #fff;*/
+/*        font-size: 14px;*/
+/*        text-align: center;*/
+/*    }*/
 
 
-    .el-main {
-        background-color: #E9EEF3;
-        color: #333;
-        text-align: center;
-        line-height: 50px;
-    }
+/*    .el-main {*/
+/*        background-color: #E9EEF3;*/
+/*        color: #333;*/
+/*        text-align: center;*/
+/*        line-height: 50px;*/
+/*    }*/
 
-    .homeMain{
-        margin-top:-20px;
-        margin-left:-20px;
-        margin-right:-20px;
-        margin-bottom:-18px;
+/*    .homeMain{*/
+/*        margin-top:-20px;*/
+/*        margin-left:-20px;*/
+/*        margin-right:-20px;*/
+/*        margin-bottom:-18px;*/
 
-        height: 680px;
-        align-content:stretch;
-    }
-    .el-tab-pane{
-        font-size:60px;
-    .label{
-        font-size:60px;
-    }
-    }
+/*        height: 680px;*/
+/*        align-content:stretch;*/
+/*    }*/
+/*    .el-tab-pane{*/
+/*        font-size:60px;*/
+/*    .label{*/
+/*        font-size:60px;*/
+/*    }*/
+/*    }*/
 
-    .el-dropdown-link {
-        cursor: pointer;
-        color: #000;
-    }
-    .el-icon-arrow-down {
-        font-size: 12px;
-    }
+/*    .el-dropdown-link {*/
+/*        cursor: pointer;*/
+/*        color: #000;*/
+/*    }*/
+/*    .el-icon-arrow-down {*/
+/*        font-size: 12px;*/
+/*    }*/
 </style>

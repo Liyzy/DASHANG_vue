@@ -93,23 +93,23 @@ export default {
 };
 </script>
 
-<style>
-.el-input__inner{
-    padding-left: 20px;
-    padding-right: 20px;
-}
-#simpleinput {
-  width: 200px;
-}
-.information_right,
-.information_left {
-  display: inline-block;
-  margin: 10px;
-  line-height: 30px;
-}
-.el-tabs__content,
-#pane-1,
-#detail {
-  height: 100%;
-}
+<style scoped>
+/*.el-input__inner{*/
+/*    padding-left: 20px;*/
+/*    padding-right: 20px;*/
+/*}*/
+/*#simpleinput {*/
+/*  width: 200px;*/
+/*}*/
+/*.information_right,*/
+/*.information_left {*/
+/*  display: inline-block;*/
+/*  margin: 10px;*/
+/*  line-height: 30px;*/
+/*}*/
+/*.el-tabs__content,*/
+/*#pane-1,*/
+/*#detail {*/
+/*  height: 100%;*/
+/*}*/
 </style>

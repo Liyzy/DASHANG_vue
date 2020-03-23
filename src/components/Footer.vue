@@ -1,6 +1,7 @@
 <template>
   <div class="footer">
-    <p>大商集团版权所有&nbsp;copyright&nbsp;2003-{{year}}&nbsp;{{recordation}}&nbsp;ICP证:{{ICP}}</p>
+    <p>{{company}}</p>
+    <p>{{message}}</p>
   </div>
 </template>
 
@@ -9,9 +10,8 @@ export default {
   name: "Footer",
   data() {
     return {
-      year: "2020",
-      ICP: "辽B-2-4-20080134",
-      recordation: "辽ICP备13005630号",
+      company: '大商电器代理服务平台',
+      message: '大商集团版权所有 copyright@2003-2020 辽ICP备12138号 ICP证:辽B-2-4-20200319'
     };
   }
 };
@@ -25,7 +25,29 @@ export default {
   color: #fff;
   font-size: 14px;
   display: flex;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
 }
+.footer p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+/*.footer{*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  height: 100px;*/
+/*  width: 100%;*/
+/*  color: #ecf0f1;*/
+/*  background-color: #3d4450;*/
+/*  padding-top: 10px;*/
+/*}*/
+/*.footer p{*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*}*/
 </style>

@@ -1,14 +1,16 @@
-<template  id="left">
+<template>
 
-
-  <el-tabs :tab-position="tabPosition" style="height: 100%; ">
+<div class="mailLeftMain">
+  <el-tabs :tab-position="tabPosition" type="border-card" style="height: 100%;">
     <el-tab-pane label="欢迎页">
       <welcome></welcome>
     </el-tab-pane>
+
     <el-tab-pane label="详情页">
       <detial></detial>
     </el-tab-pane>
-    <el-tab-pane label="写信" >
+
+    <el-tab-pane label="写信">
       <write></write>
     </el-tab-pane>
 
@@ -24,8 +26,9 @@
     <el-tab-pane label="草稿箱">草稿箱</el-tab-pane>
     <el-tab-pane label="已发送">已经发送的信件</el-tab-pane>
   </el-tabs>
+</div>
 
-  
+
 </template>
 
 <script>
@@ -42,23 +45,32 @@ export default {
     write
   },
   data() {
-    const item = {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      };
+    // const item = {
+    //     date: '2016-05-02',
+    //     name: '王小虎',
+    //     address: '上海市普陀区金沙江路 1518 弄'
+    //   };
       return {
         tabPosition: 'left',
-        tableData: Array(20).fill(item)
+        // tableData: Array(20).fill(item)
       };
     }
 }
 </script>
 <style>
-.el-tabs__header{
-  width: 100px;
-}
-.el-row{
-  margin: 5px;
-}
+  .mailLeftMain{
+    height: 100%;
+    width: 100%;
+    pidding:0;
+    background: transparent;
+    /*display: flex;*/
+    position: absolute;
+    /*align-content: center;*/
+  }
+/*.el-tabs__header{*/
+/*  width: 100px;*/
+/*}*/
+/*.el-row{*/
+/*  margin: 5px;*/
+/*}*/
 </style>

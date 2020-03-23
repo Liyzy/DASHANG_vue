@@ -1,5 +1,6 @@
 <template>
-    <el-container>
+    <div class="homePage">
+        <el-container>
     <!--  导航栏  -->
         <el-header class="homeHeader">
             <Header></Header>
@@ -12,6 +13,7 @@
             <Footer></Footer>
         </el-footer>
     </el-container>
+    </div>
 </template>
 
 <script>
@@ -39,6 +41,11 @@
 </script>
 
 <style scoped>
+    .homePage{
+        height: 100%;
+        width: 100%;
+        /*position: fixed;*/
+    }
     .homeHeader{
         height: 100%;
         background-color: #373f41;
@@ -46,12 +53,22 @@
         align-items: center;
     }
     .homeMain{
-        height: 720px;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+
+        /*position: relative;*/
+        /*    margin-top:-20px;*/
+        /*    margin-left:-20px;*/
+        /*margin-right:-18px;*/
     }
     .homeFooter{
         height: 100%;
+        width: 100%;
         background-color: #373f41;
         display: flex;
+        position:absolute;
+        bottom:0%;
         align-items: center;
     }
 </style>
