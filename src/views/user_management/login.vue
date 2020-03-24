@@ -1,6 +1,8 @@
 <template>
     <div class="login_container">
-        <div class="login_box">
+<!--        <span>{{this.$store.state.usertype}}</span>-->
+        <div class="loginBG">
+            <div class="login_box">
             <!-- logo -->
             <div class="logo">
                 <img src="../../assets/images/logo/logo.jpg" alt=""/>
@@ -17,9 +19,9 @@
                                   autocomplete="off"></el-input>
                     </el-form-item>
                     <el-form-item label="用户类型:" prop="usertype">
-                        <el-select v-model="loginForm.usertype" placeholder="请选择用户类型">
+                        <el-select v-model="loginForm.usertype" placeholder="请选择用户类型" @change="selectChange">
                             <el-option label="用户" value="ordinaryUser"></el-option>
-                            <el-option label="物业" value="property "></el-option>
+                            <el-option label="物业" value="property"></el-option>
                             <el-option label="厂商" value="vendor"></el-option>
                         </el-select>
                     </el-form-item>
@@ -33,6 +35,7 @@
                     </el-form-item>
                 </el-form>
             </div>
+        </div>
         </div>
         <div class="loginFooter"><Footer></Footer></div>
     </div>
@@ -56,10 +59,11 @@
                 }
             };
             return {
+                Vtype:'123',
                 loginForm: {
                     username: 'admin',
                     password: '123456',
-                    usertype: '物业',
+                    usertype: '',
                 },
 
                 loginFormRules: {
@@ -80,6 +84,10 @@
             login() {
                 // 登录的逻辑代码
                     this.$router.push('/home')
+            },
+            selectChange(Vtype){
+                // this.Vtype=Vtype;
+                this.$store.dispatch("changeUsertypeFun",Vtype);
             }
         }
     }
@@ -87,12 +95,21 @@
 
 <style scoped>
     .login_container {
-        height: 800px;
+        height: 860px;
         width: 100%;
+        display: flex;
+        flex-direction:column;
+    }
+    .loginBG{
+        height: 100%;
+        width: 100%;
+        /*margin: 0 auto;*/
+        /*position: absolute;*/
+        /*left: 50%;*/
+        /*top: 50%;*/
+        /*transform: translate(-50%, -50%);*/
         background-image: url("../../assets/images/background/loginbackground.jpg") ;
         background-size: 100% 100%;
-        /*display: flex;*/
-        /*flex-direction:column;*/
     }
 
     .login_box {
@@ -144,6 +161,7 @@
         height: 120px;
         width: 100%;
         position:fixed;
+        /*top: 20px;*/
         bottom:0px;
     }
 </style>

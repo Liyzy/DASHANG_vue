@@ -1,6 +1,7 @@
 <template>
     <div class="register_container">
-        <div class="register_box">
+        <div class="regBG">
+            <div class="register_box">
             <!-- logo -->
             <div class="logo">
                 <img src="../../assets/images/logo/logo.jpg" alt=""/>
@@ -34,6 +35,7 @@
                     </el-form-item>
                 </el-form>
             </div>
+        </div>
         </div>
         <div class="registerFooter"><Footer></Footer></div>
     </div>
@@ -100,10 +102,17 @@
 
 <style scoped>
     .register_container {
-        height: 800px;
+        height: 860px;
+        display: flex;
+        flex-direction:column;
         /*position: absolute;*/
         /*background-color: #A0CFFF;*/
+    }
+    .regBG{
+        width: 100%;
+        height: 100%;
         background-image: url("../../assets/images/background/loginbackground.jpg") ;
+        background-size: 100% 100%;
     }
 
     .register_box {
@@ -148,7 +157,7 @@
     .registerFooter{
         height: 120px;
         width: 100%;
-        position:fixed;
+        position: fixed;
         bottom:0px;
     }
 </style>

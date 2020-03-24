@@ -5,9 +5,10 @@
         <el-header class="homeHeader">
             <Header></Header>
         </el-header>
-
         <el-main class="homeMain">
-            <User></User>
+            <div v-if="this.$store.state.usertype=='ordinaryUser'"><User></User></div>
+            <div v-if="this.$store.state.usertype=='property'"><manager></manager></div>
+            <div v-if="this.$store.state.usertype=='vendor'"><vender></vender></div>
         </el-main>
         <el-footer class="homeFooter">
             <Footer></Footer>
@@ -20,17 +21,24 @@
     import Header from "../../components/Header";
     import Footer from "../../components/Footer";
     import User from "./page/user";
-    // import Manager from "./page/manager";
-    // import vender from "./page/vender";
+    import Manager from "./page/manager";
+    import Vender from "./page/vender";
 
     export default {
         name: "home",
         components:{
+            Vender,
+            Manager,
             Header,
             Footer,
             User,
             // Manager,
             // Vender,
+        },
+        data(){
+            return{
+                usertype: '用户'
+            }
         },
         methods: {
             saveNavState (activePath) {

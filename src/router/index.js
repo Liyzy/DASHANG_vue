@@ -7,6 +7,12 @@ import registeP from '../views/vendor_management/registeP.vue';
 import mail_main from "../views/mail_management/mail_main";
 import modifyInfo from "../views/user_management/modifyInfo";
 import userHome from "../views/task_management/page/user/userHome";
+import brand_list from "../views/order_management/brand_list";
+import commodity_list from "../views/order_management/commodity_list";
+import order_list from "../views/order_management/order_list";
+import shopping_cart from "../views/order_management/shopping_cart";
+import purchase_task_list from "../views/order_management/purchase_task_list";
+import purchase_task_unfinished_list from "../views/order_management/purchase_task_unfinished_list";
 
 Vue.use(VueRouter)
 
@@ -22,6 +28,36 @@ const routes = [
     meta:{
       title:"大商电器代理服务平台-登录"
     }
+  },
+  {
+    path: '/purchase_task_list',
+    name: 'purchase_task_list',
+    component: purchase_task_list
+  },
+  {
+    path: '/purchase_task_unfinished_list',
+    name: 'purchase_task_unfinished_list',
+    component: purchase_task_unfinished_list
+  },
+  {
+    path: '/shopping_cart',
+    name: '购物车',
+    component: shopping_cart
+  },
+  {
+    path: '/order_list',
+    name: '订单列表',
+    component: order_list
+  },
+  {
+    path: '/commodity_list',
+    name: '商品列表',
+    component: commodity_list
+  },
+  {
+    path: '/brand_list',
+    name: '品牌列表',
+    component: brand_list
   },
   {
     path: '/register',
