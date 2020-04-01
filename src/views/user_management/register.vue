@@ -8,19 +8,15 @@
             </div>
             <!-- 注册表单 -->
             <div>
-                <el-form ref="registerFormRef" :model="registerForm" :rules="registerFormRules" label-width="90px"
-                         class="register_form">
+                <el-form ref="registerFormRef" :model="registerForm" :rules="registerFormRules" label-width="90px" class="register_form">
                     <el-form-item label="用户名:" prop="username">
-                        <el-input v-model="registerForm.username" prefix-icon="el-icon-user"
-                                  autocomplete="off"></el-input>
+                        <el-input v-model="registerForm.username" prefix-icon="el-icon-user" autocomplete="off"></el-input>
                     </el-form-item>
                     <el-form-item label="密码:" prop="password">
-                        <el-input v-model="registerForm.password" prefix-icon="el-icon-lock" type="password"
-                                  autocomplete="off"></el-input>
+                        <el-input v-model="registerForm.password" prefix-icon="el-icon-lock" type="password" autocomplete="off"></el-input>
                     </el-form-item>
                     <el-form-item label="确认密码:" prop="checkPassword">
-                        <el-input v-model="registerForm.checkPassword" prefix-icon="el-icon-lock" type="password"
-                                  autocomplete="off"></el-input>
+                        <el-input v-model="registerForm.checkPassword" prefix-icon="el-icon-lock" type="password" autocomplete="off"></el-input>
                     </el-form-item>
                     <el-form-item label="用户类型:" prop="usertype">
                         <el-select v-model="registerForm.usertype" placeholder="请选择用户类型">
@@ -37,12 +33,15 @@
             </div>
         </div>
         </div>
-        <div class="registerFooter"><Footer></Footer></div>
+        <div class="registerFooter">
+            <Footer></Footer>
+        </div>
     </div>
 </template>
 
 <script>
     import Footer from "../../components/Footer";
+
     export default {
         name: "register",
         components: {Footer},

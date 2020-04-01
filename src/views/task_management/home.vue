@@ -55,10 +55,11 @@
         /*position: fixed;*/
     }
     .homeHeader{
+        width: 100%;
         height: 100%;
         background-color: #373f41;
-        display: flex;
-        align-items: center;
+        /*display: flex;*/
+        /*align-items: center;*/
     }
     .homeMain{
         height: 100%;
