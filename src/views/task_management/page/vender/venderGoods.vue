@@ -1,7 +1,7 @@
 <template>
     <div style="width: 100%">
-        <div style="width: 100%;margin: 0px auto;text-align:center">
-            <span style="font-weight: bold;font-size: 40px;margin: 0px auto">商品管理</span>
+        <div style="width: 100%;margin-bottom: -50px;text-align:center">
+            <span style="font-weight: bold;font-size: 40px;margin: 0px auto">查看商品</span>
         </div>
         <div style="float: right;width: 500px;margin: 20px">
             <el-input
@@ -19,57 +19,81 @@
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
-                        <el-form-item label="商品名称">
-                            <span>{{ props.row.name }}</span>
+                        <el-form-item label="商品图片" style="display: block">
+                            <img :src="props.row.goodsImageUrl" style="height: 100px;width: 100px"/>
                         </el-form-item>
-                        <el-form-item label="所属店铺">
-                            <img src="http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg" style="height: 50px;width: 50px"/>
-                            <span>{{ props.row.shop }}</span>
+                        <el-form-item label="商品名称：">
+                            <span>{{ props.row.goodsName }}</span>
                         </el-form-item>
-                        <el-form-item label="商品 ID">
-                            <span>{{ props.row.id }}</span>
+                        <el-form-item label="商品 ID：">
+                            <span>{{ props.row.goodsId }}</span>
                         </el-form-item>
-                        <el-form-item label="店铺 ID">
-                            <span>{{ props.row.shopId }}</span>
+                        <el-form-item label="商品售价：">
+                            <span>{{ props.row.goodsPrice }}</span>
                         </el-form-item>
-                        <el-form-item label="商品分类">
-                            <span>{{ props.row.category }}</span>
+                        <el-form-item label="商品描述：">
+                            <span>{{ props.row.goodsDesc }}</span>
                         </el-form-item>
-                        <el-form-item label="店铺地址">
-                            <span>{{ props.row.address }}</span>
-                        </el-form-item>
-                        <el-form-item label="商品描述">
-                            <span>{{ props.row.desc }}</span>
+                        <el-form-item label="本厂报价：">
+                            <el-input-number v-model="props.row.goodsOffer" controls-position="right" @change="handleChange" :min="0" :max="100000"></el-input-number>
+                            <el-button type="primary" style="margin-left: 20px">确定</el-button>
                         </el-form-item>
                     </el-form>
                 </template>
             </el-table-column>
             <el-table-column
                     label="商品 ID"
-                    width="300px"
-                    prop="id">
+                    width="180px"
+                    prop="goodsId">
             </el-table-column>
             <el-table-column
                     label="商品名称"
                     width="300px"
-                    prop="name">
+                    prop="goodsName">
             </el-table-column>
             <el-table-column
-                    label="采购数量"
-                    width="400px"
-                    prop="desc">
+                    label="商品售价"
+                    width="180px"
+                    align="center"
+                    sortable
+                    prop="goodsPrice">
             </el-table-column>
             <el-table-column
-                    label="任务日期"
-                    prop="orderDate">
+                    label="本厂报价"
+                    width="180px"
+                    align="center"
+                    sortable
+                    prop="goodsOffer">
             </el-table-column>
+            <el-table-column
+                    label="商品状态"
+                    width="180px"
+                    align="center"
+                    prop="goodsState"
+                    :filters="[{ text: '上架', value: '上架' },
+                    { text: '下架', value: '下架' }]"
+                    :filter-method="filterTag"
+                    filter-placement="bottom-end">
+            </el-table-column>
+            <el-table-column
+                    label="注册情况"
+                    width="180px"
+                    align="center"
+                    prop="goodsRegister"
+                    :filters="[{ text: '已注册', value: '已注册' },
+                    { text: '未注册', value: '未注册' }]"
+                    :filter-method="filterTag"
+                    filter-placement="bottom-end">
+            </el-table-column>
+
             <el-table-column
                     label="操作"
                     fixed="right"
                     align="center"
-                    width="100px">
+                    width="200px">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small">查看</el-button>
+                    <el-button type="primary" size="small">注册</el-button>
+                    <el-button type="primary" size="small">注销</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -94,101 +118,104 @@
             return {
                 input: '',
                 tableData: [{
-                    id: '12987122',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                }, {
-                    id: '12987123',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                }, {
-                    id: '12987125',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                }, {
-                    id: '12987126',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                }, {
-                    id: '12987126',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                }, {
-                    id: '12987126',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                },  {
-                    id: '12987126',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                },  {
-                    id: '12987126',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                }, {
-                    id: '12987126',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                 },{
-                    id: '12987125',
-                    name: '好滋好味鸡蛋仔',
-                    category: '江浙小吃、小吃零食',
-                    desc: '荷兰优质淡奶，奶香浓而不腻',
-                    address: '上海市普陀区真北路',
-                    shop: '王小虎夫妻店',
-                    shopId: '10333',
-                    orderDate: '2019/2/29'
-                }]
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                },{
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    goodsState:'上架',
+                    goodsRegister:'已注册',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, ]
             }
         },
         methods: {
             handleSizeChange(val) {
                 console.log(`每页 ${val} 条`);
+            },
+            filterTag(value, row) {
+                return row.tag === value;
             },
         }
     }

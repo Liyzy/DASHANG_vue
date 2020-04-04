@@ -83,7 +83,7 @@
                     prop="taskAmount">
             </el-table-column>
             <el-table-column
-                    label="单价"
+                    label="报价"
                     width="180px"
                     sortable
                     prop="taskOffer">
@@ -278,6 +278,10 @@
             filterTag(value, row) {
                 return row.tag === value;
             },
+            filterHandler(value, row, column) {
+                const property = column['property'];
+                return row[property] === value;
+            }
         }
     }
 </script>

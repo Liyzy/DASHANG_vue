@@ -19,6 +19,9 @@
                         <el-dropdown-item icon="el-icon-house">
                             <el-button @click="toHome" type="text">用户主页</el-button>
                         </el-dropdown-item>
+                        <el-dropdown-item icon="el-icon-edit">
+                            <el-button @click="toModifyInfo" type="text">设置</el-button>
+                        </el-dropdown-item>
                         <el-dropdown-item icon="el-icon-switch-button">
                             <el-button @click="logout" type="text">注销</el-button>
                         </el-dropdown-item>
@@ -51,6 +54,9 @@
                 // 清空token
                 window.sessionStorage.clear()
                 this.$router.push('/login')
+            },
+            toModifyInfo(){
+                this.$router.push('/modifyInfo')
             }
         }
     }
