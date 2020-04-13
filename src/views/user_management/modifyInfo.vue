@@ -1,59 +1,59 @@
 <template>
     <div class="modifyInfoHome">
-    <el-container>
-        <el-header class="modifyInfoHeader">
+        <el-container>
             <Header></Header>
-        </el-header>
-        <el-main class="modifyInfoMain">
-<!--            <img :src="avatarURL" :alt="username" class="modifyInfoAvatar"/>-->
-            <el-form ref="modifyFormRef" :model="modifyForm" :rules="modifyFormRules" label-width="90px" class="modify_form">
-                <div style="margin-left: 245px;margin-top: -180px;margin-bottom: 20px">
-<!--                    <img :src="avatarURL" :alt="username" class="modifyInfoAvatar"/>-->
-                    <el-upload
-                            class="avatar-uploader"
-                            action="https://jsonplaceholder.typicode.com/posts/"
-                            :show-file-list="false"
-                            :on-success="handleAvatarSuccess"
-                            :before-upload="beforeAvatarUpload">
-                        <img v-if="imageUrl" :src="imageUrl" class="avatar">
-                        <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-                    </el-upload>
-                </div>
-                <el-form-item label="用户名:" prop="newUsername">
-                    <el-input v-model="modifyForm.newUsername" prefix-icon="el-icon-user" autocomplete="off">
-                    </el-input>
-                </el-form-item>
-                <el-form-item label="身份证号:" prop="IDNumber">
-                    <el-input v-model="modifyForm.IDNumber" prefix-icon="el-icon-postcard" autocomplete="off">
-                    </el-input>
-                </el-form-item>
-                <el-form-item label="电子邮件:" prop="email">
-                    <el-input v-model="modifyForm.email" prefix-icon="el-icon-message" type="email" autocomplete="off">
-                    </el-input>
-                </el-form-item>
-                <el-form-item label="电话号码:" prop="telephone">
-                    <el-input v-model="modifyForm.telephone" prefix-icon="el-icon-phone" type="tel" autocomplete="off">
-                    </el-input>
-                </el-form-item>
-                <el-form-item label="地址:">
-                    <el-cascader v-model="address" :options="chinaAddress" @change="handleChange">
-                    </el-cascader>
-                </el-form-item>
-                <el-form-item class="login_btn_area">
-                    <el-button type="primary" round @click="save">
-                        保存
-                    </el-button>
-                    <el-button native-type="reset" round>
-                        重置
-                    </el-button>
-                </el-form-item>
-            </el-form>
-        </el-main>
-        <el-footer class="modifyInfoFooter">
-            <Footer></Footer>
-        </el-footer>
-    </el-container>
-        </div>
+            <el-main class="modifyInfoMain">
+                <!--            <img :src="avatarURL" :alt="username" class="modifyInfoAvatar"/>-->
+                <el-form ref="modifyFormRef" :model="modifyForm" :rules="modifyFormRules" label-width="90px"
+                         class="modify_form">
+                    <el-form-item label="上传头像:">
+                        <el-upload
+                                class="avatar-uploader"
+                                action="https://jsonplaceholder.typicode.com/posts/"
+                                :show-file-list="false"
+                                :on-success="handleAvatarSuccess"
+                                :before-upload="beforeAvatarUpload">
+                            <img v-if="imageUrl" :src="imageUrl" class="avatar">
+                            <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                        </el-upload>
+                    </el-form-item>
+                    <el-form-item label="用户名:" prop="newUsername">
+                        <el-input v-model="modifyForm.newUsername" prefix-icon="el-icon-user" autocomplete="off">
+                        </el-input>
+                    </el-form-item>
+                    <el-form-item label="身份证号:" prop="IDNumber">
+                        <el-input v-model="modifyForm.IDNumber" prefix-icon="el-icon-postcard" autocomplete="off">
+                        </el-input>
+                    </el-form-item>
+                    <el-form-item label="电子邮件:" prop="email">
+                        <el-input v-model="modifyForm.email" prefix-icon="el-icon-message" type="email"
+                                  autocomplete="off">
+                        </el-input>
+                    </el-form-item>
+                    <el-form-item label="电话号码:" prop="telephone">
+                        <el-input v-model="modifyForm.telephone" prefix-icon="el-icon-phone" type="tel"
+                                  autocomplete="off">
+                        </el-input>
+                    </el-form-item>
+                    <el-form-item label="地址:">
+                        <el-cascader v-model="address" :options="chinaAddress" @change="handleChange">
+                        </el-cascader>
+                    </el-form-item>
+                    <el-form-item class="login_btn_area">
+                        <el-button type="primary" round @click="save">
+                            保存
+                        </el-button>
+                        <el-button native-type="reset" round>
+                            重置
+                        </el-button>
+                    </el-form-item>
+                </el-form>
+            </el-main>
+            <el-footer class="modifyInfoFooter">
+                <Footer></Footer>
+            </el-footer>
+        </el-container>
+    </div>
 </template>
 
 <script>
@@ -1886,27 +1886,22 @@
     /*a:hover {*/
     /*    color: #ffd04b;*/
     /*}*/
-    .modifyInfoHome{
+    .modifyInfoHome {
         height: 100%;
         width: 100%;
     }
-    .modifyInfoHeader{
-        height: 100%;
-        width: 100%;
-        background-color: #373f41;
-        display: flex;
-        align-items: center;
 
-    }
-    .modifyInfoMain{
-        height: 100%;
+    .modifyInfoMain {
+        height: calc(100vh - 140px);
         width: 100%;
         position: fixed;
-        top:60px;
+        top: 60px;
         /*display: flex;*/
         /*bottom: 80px;*/
-        background-image: url("../../assets/images/background/loginbackground.jpg");
+        background: url("../../assets/images/background/background.jpg");
+        background-size: 100% 100%;
     }
+
     /*.modifyInfoMode{*/
     /*    margin-top: 100px;*/
     /*    height: 100%;*/
@@ -1953,16 +1948,6 @@
     /*    font-size: 17px;*/
     /*}*/
 
-    .el-dropdown-link {
-        cursor: pointer;
-        color: #ecf0f1;
-        font-size: 15px;
-    }
-
-    .el-icon-arrow-down {
-        font-size: 12px;
-    }
-
     .modify_form {
         /*margin: 0 auto;*/
         width: 600px;
@@ -1971,54 +1956,41 @@
         top: 50%;
         transform: translate(-50%, -50%);
     }
-    .modifyInfoFooter{
+
+    .modifyInfoFooter {
         height: 100%;
         width: 100%;
         background-color: #373f41;
         display: flex;
-        position:absolute;
-        bottom:0%;
+        position: absolute;
+        bottom: 0;
         align-items: center;
     }
-    /*.modifyInfoAvatar{*/
-    /*    width: 160px;*/
-    /*    height: 160px;*/
-    /*    border-radius: 50%;*/
-    /*    margin-left: 250px;*/
-    /*    margin-top: -500px;*/
-    /*    margin-bottom: 20px;*/
-        /*margin-bottom: 90px;*/
-        /*margin-left: 800px;*/
-        /*margin-top: 90px;*/
-    /*}*/
+
     .avatar-uploader .el-upload {
-        border: 1px dashed #d9d9d9;
+        border: 1px solid #8c939d;
         border-radius: 6px;
         cursor: pointer;
         position: relative;
         overflow: hidden;
-        /*position: absolute;*/
-        /*left: 50%;*/
-        /*top: 50%;*/
-        /*transform: translate(-50%, -50%);*/
     }
+
     .avatar-uploader .el-upload:hover {
         border-color: #409EFF;
-
     }
+
     .avatar-uploader-icon {
         font-size: 28px;
         color: #8c939d;
-        width: 178px;
-        height: 178px;
-        line-height: 178px;
-        /*border-radius: 50%;*/
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
         text-align: center;
     }
+
     .avatar {
-        width: 178px;
-        height: 178px;
-        border-radius: 50%;
+        width: 100px;
+        height: 100px;
         display: block;
     }
 </style>

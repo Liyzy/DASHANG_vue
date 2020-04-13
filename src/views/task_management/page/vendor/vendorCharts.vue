@@ -1,12 +1,12 @@
 <template>
     <div>
-        <div id="lineChart" style="width: 1600px;height: 700px"></div>
-        <!--        <div id="main" style="width: 1600px;height: 700px"></div>-->
+        <div id="lineChart" style="width: 1600px;height: calc(100vh - 160px);"></div>
     </div>
 </template>
 
 <script>
     import echarts from 'echarts';
+
     export default {
         name: "venderCharts",
         mounted() {
@@ -30,7 +30,7 @@
             //         data: [5, 20, 36, 10, 10, 20,54,12,89,56,44,77]
             //     }]
             // };
-            var option2 ={
+            var option2 = {
                 legend: {},
                 tooltip: {
                     trigger: 'axis',

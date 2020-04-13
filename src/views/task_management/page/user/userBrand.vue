@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div style="width: 100%;margin-bottom: 0px;text-align:center">
+    <div style="height: calc(100vh - 140px);">
+        <div style="width: 100%;margin-bottom: 0;text-align:center">
             <span style="font-weight: bold;font-size: 40px;">品牌展示</span>
         </div>
         <div style="float: right;width: 500px;margin-top: -30px">
@@ -12,8 +12,8 @@
             </el-input>
         </div>
         <el-divider></el-divider>
-        <div style="overflow: auto;width:100%;height: 799px;padding-right:200px;margin-right: 160px">
-            <div style="height:1000px;margin-right: 1%">
+        <div style="overflow: auto;width:100%;height: 450px;padding-right:200px;margin-right: 160px">
+            <div style="height:450px;margin-right: 1%">
                 <el-row>
                     <el-col :span="3" v-for="(item) in tabledata" :key="item.brand" :offset="1">
                         <div style="margin-top:15px">

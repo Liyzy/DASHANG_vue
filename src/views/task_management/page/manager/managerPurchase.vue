@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 100%">
+    <div style="width: 100%;height: calc(100vh - 140px);">
         <div style="width: 100%;margin-bottom: -50px;text-align:center">
             <span style="font-weight: bold;font-size: 40px;">采购管理</span>
         </div>
@@ -14,8 +14,8 @@
 
         <el-table
                 :data="tableData"
-                style="width: 100%;height: 500px"
-                max-height="500px">
+                style="width: 100%;height: 400px"
+                max-height="400px">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -32,10 +32,10 @@
                             <span>{{ props.row.goodsOffer }}</span>
                         </el-form-item>
                         <el-form-item label="报价厂商：">
-                            <span>{{ props.row.venderOffer }}</span>
+                            <span>{{ props.row.vendorOffer }}</span>
                         </el-form-item>
                         <el-form-item label="厂商联系方式：">
-                            <span>{{ props.row.telephoneVender }}</span>
+                            <span>{{ props.row.telephonevendor }}</span>
                         </el-form-item>
                         <el-form-item label="商品描述：">
                             <span>{{ props.row.goodsDesc }}</span>
@@ -56,7 +56,8 @@
                             </el-select>
                         </el-form-item>
                         <el-form-item label="采购数量：">
-                            <el-input-number v-model="props.row.goodsPAmount" controls-position="right" @change="handleChange" :min="0" :max="100000"></el-input-number>
+                            <el-input-number v-model="props.row.goodsPAmount" controls-position="right"
+                                             @change="handleChange" :min="0" :max="100000"></el-input-number>
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" style="margin-top: 20px">采购</el-button>
@@ -109,7 +110,7 @@
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000"
-                    style="margin-top: 10px ">
+                    style="margin-top: 10px ;text-align: center">
             </el-pagination>
         </div>
     </div>
@@ -124,92 +125,92 @@
                 tableData: [{
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
-                },{
+                }, {
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
-                },{
+                }, {
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
-                },{
+                }, {
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
-                },{
+                }, {
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
-                },{
+                }, {
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
-                },{
+                }, {
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
-                },{
+                }, {
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
-                },{
+                }, {
                     goodsId: '12987122',
                     goodsName: '三星智能手机S10旗舰版全网通',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                    venderOffer: '上海嘉定三星电子厂',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    vendorOffer: '上海嘉定三星电子厂',
                     goodsOffer: '2130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    telephoneVender: '13838384438',
-                    goodsPAmount:'1233',
+                    telephonevendor: '13838384438',
+                    goodsPAmount: '1233',
                     purchaseDate: '2019-5-1'
                 }
                 ],
@@ -258,10 +259,12 @@
     .demo-table-expand {
         font-size: 0;
     }
+
     .demo-table-expand label {
         width: 90px;
         color: #99a9bf;
     }
+
     .demo-table-expand .el-form-item {
         margin-right: 0;
         margin-bottom: 0;

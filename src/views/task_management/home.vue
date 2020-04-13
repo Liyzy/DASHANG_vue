@@ -22,7 +22,7 @@
     import Footer from "../../components/Footer";
     import User from "./page/user";
     import Manager from "./page/manager";
-    import Vender from "./page/vender";
+    import Vender from "./page/vendor";
 
     export default {
         name: "home",
@@ -61,7 +61,8 @@
         /*display: flex;*/
         /*align-items: center;*/
     }
-    .homeMain{
+
+    .homeMain {
         height: 100%;
         width: 100%;
         padding: 0;
@@ -71,13 +72,14 @@
         /*    margin-left:-20px;*/
         /*margin-right:-18px;*/
     }
-    .homeFooter{
+
+    .homeFooter {
         height: 100%;
         width: 100%;
         background-color: #373f41;
         display: flex;
-        position:absolute;
-        bottom:0%;
+        position: absolute;
+        bottom: 0;
         align-items: center;
     }
 </style>

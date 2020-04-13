@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 100%">
+    <div style="width: 100%; height: calc(100vh - 140px);">
         <div style="width: 100%;margin-bottom: -50px;text-align:center">
             <span style="font-weight: bold;font-size: 40px;">商品货架</span>
         </div>
@@ -14,8 +14,8 @@
 
         <el-table
                 :data="tableData"
-                style="width: 100%;height: 500px"
-                max-height="500px">
+                style="width: 100%;height: 450px"
+                max-height="450px">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -84,7 +84,7 @@
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000"
-                    style="margin-top: 10px ">
+                    style="margin-top: 10px;text-align: center;">
             </el-pagination>
         </div>
     </div>
@@ -98,66 +98,66 @@
                 value1: true,
                 input: '',
                 tableData: [{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },{
-                    goodsBrand:'三星',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                }, {
+                    goodsBrand: '三星',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                },  ]
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                },]
             }
         },
         methods: {
@@ -175,10 +175,12 @@
     .demo-table-expand {
         font-size: 0;
     }
+
     .demo-table-expand label {
         width: 90px;
         color: #99a9bf;
     }
+
     .demo-table-expand .el-form-item {
         margin-right: 0;
         margin-bottom: 0;

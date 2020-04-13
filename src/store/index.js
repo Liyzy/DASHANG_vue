@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 const store=new Vuex.Store({
     state:{
-        username: '丨一一一一一一一一丨',
+        username: 'userName-test',
         usertype: '',
         IDNumber: '111102199999999999',
         email: '1235646231@qq.com',

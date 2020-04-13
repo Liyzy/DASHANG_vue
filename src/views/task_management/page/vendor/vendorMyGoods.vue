@@ -1,7 +1,7 @@
 <template>
-    <div style="width: 100%">
+    <div style="width: 100%;height: calc(100vh - 160px);">
         <div style="width: 100%;margin-bottom: -50px;text-align:center">
-            <span style="font-weight: bold;font-size: 40px;margin: 0px auto">查看商品</span>
+            <span style="font-weight: bold;font-size: 40px;margin: 0px auto">本厂商品</span>
         </div>
         <div style="float: right;width: 500px;margin: 20px">
             <el-input
@@ -14,8 +14,8 @@
 
         <el-table
                 :data="tableData"
-                style="width: 100%;height: 500px"
-                max-height="500px">
+                style="width: 100%;height: 400px"
+                max-height="400px">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -52,6 +52,16 @@
                     prop="goodsName">
             </el-table-column>
             <el-table-column
+                    label="商品状态"
+                    width="180px"
+                    align="center"
+                    prop="goodsState"
+                    :filters="[{ text: '上架', value: '上架' },
+                    { text: '下架', value: '下架' }]"
+                    :filter-method="filterTag"
+                    filter-placement="bottom-end">
+            </el-table-column>
+            <el-table-column
                     label="商品售价"
                     width="180px"
                     align="center"
@@ -64,36 +74,26 @@
                     align="center"
                     sortable
                     prop="goodsOffer">
-            </el-table-column>
-            <el-table-column
-                    label="商品状态"
-                    width="180px"
-                    align="center"
-                    prop="goodsState"
-                    :filters="[{ text: '上架', value: '上架' },
-                    { text: '下架', value: '下架' }]"
-                    :filter-method="filterTag"
-                    filter-placement="bottom-end">
-            </el-table-column>
-            <el-table-column
-                    label="注册情况"
-                    width="180px"
-                    align="center"
-                    prop="goodsRegister"
-                    :filters="[{ text: '已注册', value: '已注册' },
-                    { text: '未注册', value: '未注册' }]"
-                    :filter-method="filterTag"
-                    filter-placement="bottom-end">
-            </el-table-column>
+            </el-table-column><el-table-column
+                label="采购日期"
+                prop="registerDate"
+                sortable
+                width="180"
+                column-key="purchaseDate"
+                :filters="[{text: '2019-05-01', value: '2019-05-01'},
+                    {text: '2019-05-02', value: '2019-05-02'},
+                    {text: '2019-05-03', value: '2019-05-03'},
+                    {text: '2019-05-04', value: '2019-05-04'}]"
+                :filter-method="filterHandler">
+        </el-table-column>
 
             <el-table-column
                     label="操作"
                     fixed="right"
                     align="center"
-                    width="200px">
+                    width="100px">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small">注册</el-button>
-                    <el-button type="primary" size="small">注销</el-button>
+                    <el-button type="primary" size="small">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -105,7 +105,7 @@
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000"
-                    style="margin-top: 10px ">
+                    style="margin-top: 10px;text-align: center  ">
             </el-pagination>
         </div>
     </div>
@@ -113,7 +113,7 @@
 
 <script>
     export default {
-        name: "venderGoods",
+        name: "venderMyGoods",
         data() {
             return {
                 input: '',
@@ -122,8 +122,8 @@
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                 },{
@@ -131,8 +131,8 @@
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                 },{
@@ -140,82 +140,88 @@
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                }, {
+                },{
                     goodsId:'12312321',
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                }, {
+                },{
                     goodsId:'12312321',
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                }, {
+                },{
                     goodsId:'12312321',
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                }, {
+                },{
                     goodsId:'12312321',
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                }, {
+                },{
                     goodsId:'12312321',
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                }, {
+                },{
                     goodsId:'12312321',
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                }, {
+                },{
                     goodsId:'12312321',
                     goodsName:'三星智能手机S10旗舰版全网通',
                     goodsPrice:'3130',
                     goodsOffer:'2130',
+                    registerDate:'2019-2-29',
                     goodsState:'上架',
-                    goodsRegister:'已注册',
                     goodsDesc: '旗舰版-全网通-4G-套餐一',
                     goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
-                }, ]
+                },{
+                    goodsId:'12312321',
+                    goodsName:'三星智能手机S10旗舰版全网通',
+                    goodsPrice:'3130',
+                    goodsOffer:'2130',
+                    registerDate:'2019-2-29',
+                    goodsState:'上架',
+                    goodsDesc: '旗舰版-全网通-4G-套餐一',
+                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                },]
             }
         },
         methods: {
             handleSizeChange(val) {
                 console.log(`每页 ${val} 条`);
-            },
-            filterTag(value, row) {
-                return row.tag === value;
             },
         }
     }

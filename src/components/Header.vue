@@ -63,36 +63,42 @@
 </script>
 
 <style scoped>
-    #dsHeader{
+    #dsHeader {
         width: 100%;
-        height: 80px;
+        height: 60px;
         background: #373f41;
     }
-    .header{
+
+    .header {
         width: 100%;
-        height: 80px;
+        height: 60px;
         background: #373f41;
     }
-    .header_left{
+
+    .header_left {
         width: 300px;
-        height: 80px;
+        height: 60px;
         background: #373f41;
         float: left;
     }
-    .header_right{
-        width: 450px;
-        height: 80px;
+
+    .header_right {
+        position: absolute;
+        right: 0;
+        height: 60px;
         background: #373f41;
         float: right;
     }
-    .header_left>div{
-        width: 80px;
+
+    .header_left > div {
+        width: 60px;
         height: 50px;
         float: left;
         margin: 5px 0 5px;
         background: #373f41;
     }
-    .header_left>span{
+
+    .header_left > span {
         float: right;
         line-height: 40px;
         font-weight: bold;
@@ -100,23 +106,26 @@
         color: #ffffff;
         margin: 10px 5px 10px;
     }
-    .header_right>img {
+
+    .header_right > img {
         width: 45px;
         height: 45px;
         border-radius: 50%;
         margin: 8px 10px 5px 10px;
-        float: right;
+        float: left;
     }
-    .header_right>span{
+
+    .header_right > span {
         margin: 9px 15px 10px;
-        float: right;
+        float: left;
     }
+
     #el-dropdown-link {
         cursor: pointer;
         color: #ecf0f1;
         font-size: 20px;
         margin: 18px 10px 10px;
-        float: right;
+        float: left;
     }
     .el-icon-arrow-down {
         font-size: 12px;

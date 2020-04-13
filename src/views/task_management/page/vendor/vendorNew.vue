@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height: calc(100vh - 160px);">
         <div style="width: 100%;margin-bottom: 50px;text-align:center;padding-top:50px;">
             <span style="font-weight: bold;font-size: 40px;">注册商品</span>
         </div>

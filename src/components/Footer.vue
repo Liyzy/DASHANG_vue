@@ -18,36 +18,37 @@ export default {
 </script>
 
 <style scoped>
-.footer{
-  height: 100%;
-  width: 100%;
-  background-color: #373f41;
-  color: #fff;
-  font-size: 14px;
-  display: flex;
-  flex-direction:column;
-  justify-content: center;
-  align-items: center;
-}
-.footer p{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px;
-}
-
 /*.footer{*/
-/*  position: absolute;*/
-/*  bottom: 0;*/
-/*  height: 100px;*/
+/*  height: 100%;*/
 /*  width: 100%;*/
-/*  color: #ecf0f1;*/
-/*  background-color: #3d4450;*/
-/*  padding-top: 10px;*/
+/*  background-color: #373f41;*/
+/*  color: #fff;*/
+/*  font-size: 14px;*/
+/*  display: flex;*/
+/*  flex-direction:column;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
 /*}*/
 /*.footer p{*/
 /*  display: flex;*/
 /*  justify-content: center;*/
 /*  align-items: center;*/
+/*  margin: 0;*/
 /*}*/
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  color: #ecf0f1;
+  background-color: #3d4450;
+}
+
+.footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>

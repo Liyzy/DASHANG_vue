@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 100%">
+    <div style="width: 100%;height: calc(100vh - 140px);">
         <div style="width: 100%;margin-bottom: -50px;text-align:center">
             <span style="font-weight: bold;font-size: 40px;">任务管理</span>
         </div>
@@ -14,8 +14,8 @@
 
         <el-table
                 :data="tableData"
-                style="width: 100%;height: 500px"
-                max-height="500px">
+                style="width: 100%;height: 400px"
+                max-height="400px">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -41,10 +41,10 @@
                             <span>{{ props.row.taskAmount }}</span>
                         </el-form-item>
                         <el-form-item label="生产厂家：">
-                            <span>{{ props.row.taskVender }}</span>
+                            <span>{{ props.row.taskvendor }}</span>
                         </el-form-item>
                         <el-form-item label="厂家联系方式：">
-                            <span>{{ props.row.telephoneVender }}</span>
+                            <span>{{ props.row.telephonevendor }}</span>
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" style="margin-top: 20px">下单</el-button>
@@ -124,7 +124,7 @@
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000"
-                    style="margin-top: 10px ">
+                    style="margin-top: 10px;text-align: center ">
             </el-pagination>
         </div>
     </div>
@@ -139,136 +139,136 @@
                 tableData: [{
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
                 }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
                     taskAmount: '1233',
                     taskDate: '2019-5-1',
-                    taskVender: '上海嘉定三星电子厂',
-                    telephoneVender: '13838384438',
+                    taskvendor: '上海嘉定三星电子厂',
+                    telephonevendor: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } , ]
+                },]
             }
         },
         methods: {
@@ -290,10 +290,12 @@
     .demo-table-expand {
         font-size: 0;
     }
+
     .demo-table-expand label {
         width: 90px;
         color: #99a9bf;
     }
+
     .demo-table-expand .el-form-item {
         margin-right: 0;
         margin-bottom: 0;

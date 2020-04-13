@@ -1,21 +1,21 @@
 <template>
-    <div style="width: 100%">
+    <div style="width: 100%;height: calc(100vh - 140px);">
         <div style="width: 100%;margin-bottom: -50px;text-align:center">
             <span style="font-weight: bold;font-size: 40px;margin: 10px auto">订单管理</span>
         </div>
         <div style="float: right;width: 500px;margin: 20px">
             <el-input
-                placeholder="请输入内容"
-                prefix-icon="el-icon-search"
-                v-model="input"
-                style="margin: 5px;width: 100%">
+                    placeholder="请输入内容"
+                    prefix-icon="el-icon-search"
+                    v-model="input"
+                    style="margin: 5px;width: 100%">
             </el-input>
         </div>
         <el-table
                 ref="filterTable"
                 :data="tableData"
-                style="width: 100%;height: 500px"
-                max-height="500px">
+                style="width: 100%;height: 400px"
+                max-height="400px">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -23,7 +23,7 @@
                             <span>{{ props.row.orderId }}</span>
                         </el-form-item>
                         <el-form-item label="订单状态：">
-                           <span>{{ props.row.orderState }}</span>
+                            <span>{{ props.row.orderState }}</span>
                         </el-form-item>
                         <el-form-item label="收货人姓名：">
                             <span>{{ props.row.userName }}</span>
@@ -36,10 +36,11 @@
                         <el-form-item label="收货人email：">
                             <span>{{ props.row.userEmail }}</span>
                             <el-button type="text"><i class="el-icon-edit"></i></el-button>
-                        </el-form-item><el-form-item label="收货人地址：">
-                        <span>{{ props.row.userAddress }}</span>
-                        <el-button type="text"><i class="el-icon-edit"></i></el-button>
-                    </el-form-item>
+                        </el-form-item>
+                        <el-form-item label="收货人地址：">
+                            <span>{{ props.row.userAddress }}</span>
+                            <el-button type="text"><i class="el-icon-edit"></i></el-button>
+                        </el-form-item>
                         <el-form-item label="订单内容：" style="display: block">
                             <el-table
                                     :data="goodsTableData"
@@ -130,7 +131,7 @@
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000"
-                    style="margin-top: 10px ">
+                    style="margin-top: 10px;text-align: center ">
             </el-pagination>
         </div>
     </div>
@@ -143,133 +144,133 @@
             return {
                 input: '',
                 goodsTableData: [{
-                    goodsId:'12312321',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
-                    goodsAmount:'5',
-                    goodsAmountSP:'3130*5'
-                },{
-                    goodsId:'12312321',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
-                    goodsAmount:'5',
-                    goodsAmountSP:'3130*5'
-                },{
-                    goodsId:'12312321',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
-                    goodsAmount:'5',
-                    goodsAmountSP:'3130*5'
-                },{
-                    goodsId:'12312321',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
-                    goodsAmount:'5',
-                    goodsAmountSP:'3130*5'
-                },{
-                    goodsId:'12312321',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
-                    goodsAmount:'5',
-                    goodsAmountSP:'3130*5'
-                },{
-                    goodsId:'12312321',
-                    goodsName:'三星智能手机S10旗舰版全网通',
-                    goodsPrice:'3130',
-                    goodsAmount:'5',
-                    goodsAmountSP:'3130*5'
+                    goodsId: '12312321',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
+                    goodsAmount: '5',
+                    goodsAmountSP: '3130*5'
+                }, {
+                    goodsId: '12312321',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
+                    goodsAmount: '5',
+                    goodsAmountSP: '3130*5'
+                }, {
+                    goodsId: '12312321',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
+                    goodsAmount: '5',
+                    goodsAmountSP: '3130*5'
+                }, {
+                    goodsId: '12312321',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
+                    goodsAmount: '5',
+                    goodsAmountSP: '3130*5'
+                }, {
+                    goodsId: '12312321',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
+                    goodsAmount: '5',
+                    goodsAmountSP: '3130*5'
+                }, {
+                    goodsId: '12312321',
+                    goodsName: '三星智能手机S10旗舰版全网通',
+                    goodsPrice: '3130',
+                    goodsAmount: '5',
+                    goodsAmountSP: '3130*5'
                 },],
                 tableData: [{
                     orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
-                    orderDate: '2019/2/29'
-                },{
-                    orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
                     orderDate: '2019/2/29'
                 }, {
                     orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
                     orderDate: '2019/2/29'
                 }, {
                     orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
                     orderDate: '2019/2/29'
                 }, {
                     orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
                     orderDate: '2019/2/29'
                 }, {
                     orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
                     orderDate: '2019/2/29'
                 }, {
                     orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
                     orderDate: '2019/2/29'
                 }, {
                     orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
                     orderDate: '2019/2/29'
                 }, {
                     orderId: '12987122',
-                    orderState:'待接单',
-                    orderName:'三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
-                    userName:'LV驴',
-                    userTelephone:'13838384438',
-                    userEmail:'1231231@qq.com',
-                    userAddress:'辽宁省朝阳市清水县童家堡平安街14号',
-                    orderAmountPrice:'3130*5*6',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
                     orderDate: '2019/2/29'
-                },  ]
+                }, {
+                    orderId: '12987122',
+                    orderState: '待接单',
+                    orderName: '三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通,三星智能手机S10旗舰版全网通',
+                    userName: 'LV驴',
+                    userTelephone: '13838384438',
+                    userEmail: '1231231@qq.com',
+                    userAddress: '辽宁省朝阳市清水县童家堡平安街14号',
+                    orderAmountPrice: '3130*5*6',
+                    orderDate: '2019/2/29'
+                },]
             }
         },
         methods: {
@@ -291,10 +292,12 @@
     .demo-table-expand {
         font-size: 0;
     }
+
     .demo-table-expand label {
         width: 90px;
         color: #99a9bf;
     }
+
     .demo-table-expand .el-form-item {
         margin-right: 0;
         margin-bottom: 0;

@@ -26,7 +26,7 @@ const routes = [
     name: '登录',
     component: login,
     meta:{
-      title:"大商电器代理服务平台-登录"
+      title: "登录-大商电器代理服务平台"
     }
   },
   {
@@ -62,7 +62,10 @@ const routes = [
   {
     path: '/register',
     name: '注册',
-    component: register
+    component: register,
+    meta: {
+      title: "注册-大商电器代理服务平台"
+    }
   },
   {
     path: '/home',
@@ -82,7 +85,10 @@ const routes = [
   {
     path: '/modifyInfo',
     name: 'modifyInfo',
-    component: modifyInfo
+    component: modifyInfo,
+    meta: {
+      title: "修改信息-大商电器代理服务平台"
+    }
   },
   {
     path: '/userHome',

@@ -45,12 +45,12 @@
 
 <style scoped>
     .userHome{
-        height: 100%;
+        height: calc(100vh - 140px);
         width: 100%;
         padding: 0;
         margin-top: -16px;
         margin-left: -22px;
-        background-image: url("../../../../assets/images/background/loginbackground.jpg");
+        background-image: url("../../../../assets/images/background/background.jpg");
         position: fixed;
     }
     .userHome>img {

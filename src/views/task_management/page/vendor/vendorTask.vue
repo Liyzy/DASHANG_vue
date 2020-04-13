@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 100%">
+    <div style="width: 100%;height: calc(100vh - 160px);">
         <div style="width: 100%;margin-bottom: -50px;text-align:center">
             <span style="font-weight: bold;font-size: 40px;margin: 10px auto">任务管理</span>
         </div>
@@ -14,8 +14,8 @@
 
         <el-table
                 :data="tableData"
-                style="width: 100%;height: 500px"
-                max-height="500px">
+                style="width: 100%;height: 400px"
+                max-height="400px">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -51,7 +51,8 @@
                             <el-button type="primary" style="margin-top: 20px;margin-left: 25px">到货</el-button>
                         </el-form-item>
                         <el-form-item label="采购数量：" style="margin-top: 20px">
-                            <el-input-number v-model="props.row.taskAmount" controls-position="right" @change="handleChange" :min="0" :max="100000"></el-input-number>
+                            <el-input-number v-model="props.row.taskAmount" controls-position="right"
+                                             @change="handleChange" :min="0" :max="100000"></el-input-number>
                             <el-button type="primary" style="margin-left: 20px">确定</el-button>
                         </el-form-item>
 
@@ -126,7 +127,7 @@
                     :page-size="100"
                     layout="prev, pager, next, jumper"
                     :total="1000"
-                    style="margin-top: 10px ">
+                    style="margin-top: 10px;text-align: center">
             </el-pagination>
         </div>
     </div>
@@ -141,7 +142,7 @@
                 tableData: [{
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -153,7 +154,7 @@
                 }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -162,10 +163,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -174,10 +175,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -186,10 +187,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -198,10 +199,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -210,10 +211,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -222,10 +223,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -234,10 +235,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -246,10 +247,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -258,10 +259,10 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,{
+                }, {
                     taskName: '三星智能手机S10旗舰版全网通',
                     taskId: '12987122',
-                    goodsImageUrl:'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
+                    goodsImageUrl: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',
                     taskPrice: '3130',
                     taskOffer: '2130',
                     taskState: '待收货',
@@ -270,7 +271,7 @@
                     managerAddress: '上海市浦东区青桥镇顺安街215号',
                     telephoneManager: '13838384438',
                     taskAmountOffer: '2130*1233',
-                } ,]
+                },]
             }
         },
         methods: {
@@ -295,10 +296,12 @@
     .demo-table-expand {
         font-size: 0;
     }
+
     .demo-table-expand label {
         width: 90px;
         color: #99a9bf;
     }
+
     .demo-table-expand .el-form-item {
         margin-right: 0;
         margin-bottom: 0;
