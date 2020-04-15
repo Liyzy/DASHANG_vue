@@ -7,13 +7,14 @@ import './plugins/element.js'
 import './assets/css/global.css'
 
 import axios from 'axios'
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+// axios.defaults.baseURL = 'http://localhost:5227';
+axios.defaults.baseURL = 'http://118.178.187.5:5227';
 Vue.prototype.$http = axios;
-Vue.prototype.$echarts=Echarts;
+Vue.prototype.$echarts = Echarts;
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
-  window.document.title = to.meta.title == undefined?'大商电器代理服务平台':to.meta.title
+  window.document.title = to.meta.title == undefined ? '大商电器代理服务平台' : to.meta.title;
   if (to.meta.requireAuth) {
     let token = Cookies.get('access_token');
     let anonymous = Cookies.get('user_name');
@@ -29,7 +30,7 @@ router.beforeEach((to, from, next) => {
     }
   }
   next();
-})
+});
 
 new Vue({
   store,

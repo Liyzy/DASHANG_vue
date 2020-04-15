@@ -13,8 +13,9 @@ import order_list from "../views/order_management/order_list";
 import shopping_cart from "../views/order_management/shopping_cart";
 import purchase_task_list from "../views/order_management/purchase_task_list";
 import purchase_task_unfinished_list from "../views/order_management/purchase_task_unfinished_list";
+import NotFound from "../views/NotFound";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -84,21 +85,26 @@ const routes = [
   },
   {
     path: '/modifyInfo',
-    name: 'modifyInfo',
-    component: modifyInfo,
-    meta: {
-      title: "修改信息-大商电器代理服务平台"
-    }
+      name: 'modifyInfo',
+      component: modifyInfo,
+      meta: {
+          title: "修改信息-大商电器代理服务平台"
+      }
   },
-  {
-    path: '/userHome',
-    name: 'userHome',
-    component: userHome
-  }
-]
+    {
+        path: '/userHome',
+        name: 'userHome',
+        component: userHome
+    },
+    {
+        path: '*',
+        name: '404NotFound',
+        component: NotFound
+    }
+];
 
 const router = new VueRouter({
-  routes
-})
+    routes
+});
 
 export default router

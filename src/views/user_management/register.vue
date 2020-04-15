@@ -24,9 +24,9 @@
                         </el-form-item>
                         <el-form-item label="用户类型:" prop="usertype">
                             <el-select v-model="registerForm.usertype" placeholder="请选择用户类型">
-                                <el-option label="用户" value="ordinaryUser"></el-option>
-                                <el-option label="物业" value="property "></el-option>
-                                <el-option label="厂商" value="vendor"></el-option>
+                                <el-option label="用户" value="1"></el-option>
+                                <el-option label="物业" value="2 "></el-option>
+                                <el-option label="厂商" value="3"></el-option>
                             </el-select>
                         </el-form-item>
 
@@ -95,7 +95,20 @@
         methods: {
             register() {
                 // 注册逻辑代码
-                this.$router.push({path: '/login'});
+                this.$http({
+                    url: '/register',
+                    method: 'post',
+                    data: {
+                        userName: this.registerForm.username,
+                        password: this.registerForm.password,
+                        userType: this.registerForm.usertype,
+                    },
+                }).then((response) => {
+                    console.log(response);
+                    this.$router.push({path: '/login'});
+                }).catch((error) => {
+                    console.log(error);
+                });
             }
         }
     }

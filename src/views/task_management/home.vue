@@ -6,9 +6,15 @@
             <Header></Header>
         </el-header>
         <el-main class="homeMain">
-            <div v-if="this.$store.state.usertype=='ordinaryUser'"><User></User></div>
-            <div v-if="this.$store.state.usertype=='property'"><manager></manager></div>
-            <div v-if="this.$store.state.usertype=='vendor'"><vender></vender></div>
+            <div v-if="this.$store.state.usertype=='1'">
+                <User></User>
+            </div>
+            <div v-if="this.$store.state.usertype=='2'">
+                <manager></manager>
+            </div>
+            <div v-if="this.$store.state.usertype=='3'">
+                <vender></vender>
+            </div>
         </el-main>
         <el-footer class="homeFooter">
             <Footer></Footer>

@@ -2,7 +2,9 @@
     <div id="dsHeader">
         <div class="header">
             <div class="header_left">
-                <div><el-image :src="require('../../public/图标.png')" :fit="fill"></el-image></div>
+                <div>
+                    <el-image :src="require('../../public/图标.png')"></el-image>
+                </div>
                 <span>大商电器代理服务平台</span>
             </div>
             <div class="header_right">

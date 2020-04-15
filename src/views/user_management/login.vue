@@ -44,6 +44,7 @@
 
 <script>
     import Footer from '../../components/Footer'
+    import store from '../../store/index'
 
     export default {
         name: "Login",
@@ -60,7 +61,7 @@
                 }
             };
             return {
-                Vtype: '123',
+                Vtype: '',  //这是干什么的？
                 loginForm: {
                     username: '',
                     password: '',
@@ -82,17 +83,35 @@
             }
         },
         methods: {
-            login() {
+            login: function () {
                 // 登录的逻辑代码
+                this.$http({
+                    url: '/login',
+                    method: 'post',
+                    data: {
+                        userName: this.loginForm.username,
+                        password: this.loginForm.password,
+                        userType: this.loginForm.usertype,
+                    },
+                }).then((response) => {
+                    console.log(response);
+                    // response.data才是获得response中的数据
+                    store.state.username = response.data.detail.userName;
+                    store.state.usertype = response.data.detail.userType;
 
-                this.$router.push('/home')
+                    this.$router.push({path: '/home'});
+                }).catch((error) => {
+                    console.log(error);
+                })
             },
+
             selectChange(Vtype) {
-                // this.Vtype=Vtype;
+                this.usertype = Vtype;
                 this.$store.dispatch("changeUsertypeFun", Vtype);
             }
         }
     }
+
 </script>
 
 <style scoped>
