@@ -40,7 +40,7 @@
                         </el-cascader>
                     </el-form-item>
                     <el-form-item class="login_btn_area">
-                        <el-button type="primary" round @click="save">
+                        <el-button type="primary" round @click="saveInfo">
                             保存
                         </el-button>
                         <el-button native-type="reset" round>
@@ -1864,16 +1864,38 @@
                 }
                 return isJPG && isLt2M;
             },
-            save() {
+            saveInfo() {
                 // 提交修改信息
-
+                this.$http({
+                    url: '/modifyInfo',
+                    method: 'post',
+                    data: {
+                        userName: this.modifyForm.newUsername,
+                        address: this.address.toString(),
+                        telNumber: this.modifyForm.telephone,
+                        email: this.modifyForm.email,
+                        cid: this.modifyForm.IDNumber,
+                        pic: this.imageUrl,
+                        userId: this.$store.state.usertype,
+                    },
+                }).then((response) => {
+                    console.log(response);
+                    this.$store.state.userName = response.data.detail.userName;
+                    this.$store.state.IDNumber = response.data.detail.cid;
+                    this.$store.state.email = response.data.detail.email;
+                    this.$store.state.telephone = response.data.detail.telNumber;
+                    this.$store.state.address = response.data.detail.address;
+                    this.$store.state.pic = response.data.detail.pic;
+                    this.$router.push({path: '/home'});
+                }).catch((error) => {
+                    console.log(error);
+                });
             },
 
             handleChange(value) {
                 console.log(value);
             }
         }
-
     }
 </script>
 

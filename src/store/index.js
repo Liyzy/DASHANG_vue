@@ -5,12 +5,14 @@ Vue.use(Vuex);
 
 const store=new Vuex.Store({
     state:{
-        username: 'userName-test',
+        userId: '',
+        username: '',
         usertype: '',
-        IDNumber: '111102199999999999',
-        email: '1235646231@qq.com',
-        telephone: '13941893655',
-        address: '辽宁省大连市中山区高尔基路48号'
+        IDNumber: '',
+        email: '',
+        telephone: '',
+        address: '',
+        pic: ''
     },
     // getters:{
     //     getStateCount:function (state) {
@@ -18,15 +20,16 @@ const store=new Vuex.Store({
     //     }
     // }
     mutations:{
-        changeUsertype(state,Vtype){
-            state.usertype=Vtype;
+        changeUsertype(state, Vtype) {
+            state.usertype = Vtype;
         }
     },
-    actions:{
-        changeUsertypeFun(context,Vtype){
-            context.commit("changeUsertype",Vtype);
+
+    actions: {
+        changeUsertypeFun(context, Vtype) {
+            context.commit("changeUsertype", Vtype);
         }
     }
-})
+});
 
 export default store

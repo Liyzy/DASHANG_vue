@@ -1,6 +1,6 @@
 <template>
     <div class="userHome">
-        <img :src="avatarURL" :alt="username"/>
+        <img :src="avatarURL"/>
         <div>
             <div>
                 <div>用户名：</div>
@@ -8,10 +8,12 @@
                 <div>身份证号：</div>
                 <div>联系电话：</div>
                 <div>收货地址：</div>
-                <div><el-button type="primary" icon="el-icon-edit" @click="toModifyInfo">设置</el-button></div>
+                <div>
+                    <el-button type="primary" icon="el-icon-edit" @click="toModifyInfo">设置</el-button>
+                </div>
             </div>
             <div>
-                <div>{{this.$store.state.username}}</div>
+                <div>{{name}}</div>
                 <div>{{this.$store.state.email}}</div>
                 <div>{{this.$store.state.IDNumber}}</div>
                 <div>{{this.$store.state.telephone}}</div>
@@ -22,20 +24,39 @@
 </template>
 
 <script>
+    import store from "../../../../store";
+
     export default {
         name: "userHome",
         data() {
             return {
-                avatarURL: 'http://pic1.zhimg.com/50/v2-ede9473ddcbd84fe7c1e363953ed7410_hd.jpg',  // 登录成功后动态获取
-                username: '一只鱼',  // 登录成功后动态获取
-                IDNumber: '111102199999999999',
-                email: '1235646231@qq.com',
-                telephone: '13941893655',
-                address: '辽宁省大连市中山区高尔基路48号'
+                avatarURL: this.$store.state.pic,  // 登录成功后动态获取
+                name: this.$store.state.username
             }
         },
-        methods:{
-            toModifyInfo(){
+        mounted() {
+            this.$http({
+                url: '/getUserInfo',
+                method: 'post',
+                data: {
+                    userId: this.$store.state.userId
+                },
+            }).then((response) => {
+                console.log(response);
+                // response.data才是获得response中的数据
+                this.$store.state.userName = response.data.detail.userName;
+                this.$store.state.IDNumber = response.data.detail.cid;
+                this.$store.state.email = response.data.detail.email;
+                this.$store.state.telephone = response.data.detail.telNumber;
+                this.$store.state.address = response.data.detail.address;
+                this.$store.state.pic = response.data.detail.pic;
+            }).catch((error) => {
+                console.log(error);
+            })
+        },
+
+        methods: {
+            toModifyInfo() {
                 this.$router.push('/modifyInfo')
             }
         }
@@ -44,7 +65,7 @@
 </script>
 
 <style scoped>
-    .userHome{
+    .userHome {
         height: calc(100vh - 140px);
         width: 100%;
         padding: 0;
@@ -53,14 +74,16 @@
         background-image: url("../../../../assets/images/background/background.jpg");
         position: fixed;
     }
-    .userHome>img {
+
+    .userHome > img {
         width: 80px;
         height: 80px;
         border-radius: 50%;
         margin-left: 140px;
         margin-top: 90px;
     }
-    .userHome>div {
+
+    .userHome > div {
         display: flex;
         font-size: 20px;
         padding-top: 140px;
@@ -69,10 +92,12 @@
         line-height: 40px;
         font-weight: bold;
     }
-    .userHome>div>div:nth-child(1){
+
+    .userHome > div > div:nth-child(1) {
         width: 150px
     }
-    .userHome>div>div:nth-child(1)>div:nth-last-child(1){
+
+    .userHome > div > div:nth-child(1) > div:nth-last-child(1) {
         margin-top: 100px
     }
 </style>

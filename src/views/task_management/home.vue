@@ -43,7 +43,7 @@
         },
         data(){
             return{
-                usertype: '用户'
+                usertype: ''
             }
         },
         methods: {

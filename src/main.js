@@ -7,8 +7,9 @@ import './plugins/element.js'
 import './assets/css/global.css'
 
 import axios from 'axios'
-// axios.defaults.baseURL = 'http://localhost:5227';
-axios.defaults.baseURL = 'http://118.178.187.5:5227';
+
+axios.defaults.baseURL = 'http://localhost:5227';
+// axios.defaults.baseURL = 'http://118.178.187.5:5227';
 Vue.prototype.$http = axios;
 Vue.prototype.$echarts = Echarts;
 Vue.config.productionTip = false;

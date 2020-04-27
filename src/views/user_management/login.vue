@@ -61,7 +61,7 @@
                 }
             };
             return {
-                Vtype: '',  //这是干什么的？
+                Vtype: '',
                 loginForm: {
                     username: '',
                     password: '',
@@ -98,6 +98,7 @@
                     // response.data才是获得response中的数据
                     store.state.username = response.data.detail.userName;
                     store.state.usertype = response.data.detail.userType;
+                    store.state.userId = response.data.detail.userId;
 
                     this.$router.push({path: '/home'});
                 }).catch((error) => {
