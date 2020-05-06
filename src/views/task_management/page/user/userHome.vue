@@ -1,6 +1,6 @@
 <template>
     <div class="userHome">
-        <img :src="avatarURL"/>
+        <img :src="this.$store.state.pic"/>
         <div>
             <div>
                 <div>昵称：</div>
@@ -47,12 +47,12 @@
                 // response.data才是获得response中的数据
                 this.$store.commit({
                     type:'userHomeInfo',
-                    userName: response.data.userName,
-                    IDNumber: response.data.cid,
-                    email: response.data.email,
-                    telephone: response.data.telNumber,
-                    address: response.data.address,
-                    pic: response.data.pic,
+                    userName: response.data.detail.userName,
+                    IDNumber: response.data.detail.cid,
+                    email: response.data.detail.email,
+                    telephone: response.data.detail.telNumber,
+                    address: response.data.detail.address,
+                    pic: response.data.detail.pic,
                 });
                 // store.state.userName = response.data.detail.userName;
                 // store.state.IDNumber = response.data.detail.cid;

@@ -129,12 +129,12 @@
                 }).then((response)=>{
                     this.$store.commit({
                         type:'userHomeInfo',
-                        userName: response.data.userName,
-                        IDNumber: response.data.cid,
-                        email: response.data.email,
-                        telephone: response.data.telNumber,
-                        address: response.data.address,
-                        pic: response.data.pic,
+                        userName: response.data.detail.userName,
+                        IDNumber: response.data.detail.cid,
+                        email: response.data.detail.email,
+                        telephone: response.data.detail.telNumber,
+                        address: response.data.detail.address,
+                        pic: response.data.detail.pic,
                     });
 
                 }).catch((error)=>{
