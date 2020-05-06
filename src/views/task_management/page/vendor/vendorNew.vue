@@ -61,6 +61,7 @@
 
             handleAvatarSuccess(res, file) {
                 this.imageUrl = URL.createObjectURL(file.raw);
+                console.log(this.imageUrl);
             },
             beforeAvatarUpload(file) {
                 const isJPG = file.type === 'image/jpeg';
@@ -84,7 +85,7 @@
                     data:{
                         PRODUCT_NAME:this.product,
                         PRODUCT_BRAND:this.brand,
-                        PRICE:this.imageUrl,
+                        PRICE:this.price,
                         DESCRIPTION:this.desc,
                         PIC:this.imageUrl,
                         USER_ID:this.$store.state.userId,
