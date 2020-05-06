@@ -39,27 +39,18 @@ export default {
       Header,
       left,
   },
-
+  data(){
+    return{
+      
+    }
+  }
 }
+
+
 </script>
 
 <style scoped>
 
-  /*#main,*/
-  /*.el-container{*/
-  /*  padding: 0px;*/
-  /*  margin: 0px;*/
-  /*  height: 780px;*/
-  /*  background-image: url('./mail_assets/back1.jpg');*/
-  /*  background-size: 100% 100%;*/
-  /*   .../assets/mail_img/back1.jpg */
-  /*}*/
-  /*.el-main,.el-footer{*/
-  /*  padding:5px;*/
-  /*  height:fit-content;*/
-  /*  background-color: cornsilk;*/
-  /*  opacity: 0.85;*/
-  /*}*/
   .mailHome{
       height: 100%;
       width: 100%;
@@ -80,26 +71,7 @@ export default {
         /*background-image: url("../../assets/images/background/loginbackground.jpg") ;*/
         /*background-size: 100% 100%;*/
     }
-    /*.mailMainA{*/
-    /*    !*height: 100%;*!*/
-    /*    !*width: 100%;*!*/
-    /*    !*padding: 0;*!*/
-    /*    !*margin: 0;*!*/
-    /*    !*position: relative;*!*/
-    /*    background: cornsilk;*/
-    /*    opacity: 0.65;*/
-    /*}*/
-    /*.mailMainB{*/
-    /*    !*padding: 0px;*!*/
-    /*    !*margin: 0px;*!*/
-    /*    !*height: 100%;*!*/
-    /*    !*width: 100%;*!*/
-    /*    !*position: fixed;*!*/
-    /*    !*height:fit-content;*!*/
-    /*    background: transparent;*/
-    /*    !*background: #fff;*!*/
-    /*    !*opacity: 0.85;*!*/
-    /*}*/
+   
     .mailFooter{
         height: 100%;
         width: 100%;

@@ -13,8 +13,9 @@ import order_list from "../views/order_management/order_list";
 import shopping_cart from "../views/order_management/shopping_cart";
 import purchase_task_list from "../views/order_management/purchase_task_list";
 import purchase_task_unfinished_list from "../views/order_management/purchase_task_unfinished_list";
+import NotFound from "../views/NotFound";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -26,7 +27,7 @@ const routes = [
     name: '登录',
     component: login,
     meta:{
-      title:"大商电器代理服务平台-登录"
+      title: "登录-大商电器代理服务平台"
     }
   },
   {
@@ -62,7 +63,10 @@ const routes = [
   {
     path: '/register',
     name: '注册',
-    component: register
+    component: register,
+    meta: {
+      title: "注册-大商电器代理服务平台"
+    }
   },
   {
     path: '/home',
@@ -81,18 +85,26 @@ const routes = [
   },
   {
     path: '/modifyInfo',
-    name: 'modifyInfo',
-    component: modifyInfo
+      name: 'modifyInfo',
+      component: modifyInfo,
+      meta: {
+          title: "修改信息-大商电器代理服务平台"
+      }
   },
-  {
-    path: '/userHome',
-    name: 'userHome',
-    component: userHome
-  }
-]
+    {
+        path: '/userHome',
+        name: 'userHome',
+        component: userHome
+    },
+    {
+        path: '*',
+        name: '404NotFound',
+        component: NotFound
+    }
+];
 
 const router = new VueRouter({
-  routes
-})
+    routes
+});
 
 export default router

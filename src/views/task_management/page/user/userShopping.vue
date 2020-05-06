@@ -38,7 +38,7 @@
         </div>
         <el-divider></el-divider>
         <div style="float: right;padding-right: 50px">
-            <strong style="padding-right: 100px">总计：&nbsp;{{price}}元</strong>
+            <strong style="padding-right: 100px">总计：&nbsp;{{price*num}}元</strong>
             <el-button type="primary">立即购买</el-button>
         </div>
     </div>
@@ -50,7 +50,8 @@
         name: "userShopping",
         data() {
             return {
-                price:'52245',
+                num:2,
+                price:'5',
                 tabledata: [
                     {
                         goodsName:'三星智能手机S10旗舰版全网通',

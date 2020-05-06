@@ -5,28 +5,54 @@ Vue.use(Vuex);
 
 const store=new Vuex.Store({
     state:{
-        username: '丨一一一一一一一一丨',
+        userId: '',
+        userName: '请设置昵称',
+        username: '',
         usertype: '',
-        IDNumber: '111102199999999999',
-        email: '1235646231@qq.com',
-        telephone: '13941893655',
-        address: '辽宁省大连市中山区高尔基路48号'
+        IDNumber: '请设置身份证号',
+        email: '请设置邮件',
+        telephone: '请设置电话',
+        address: '请设置地址',
+        pic: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
     },
-    // getters:{
-    //     getStateCount:function (state) {
-    //         return state.usertype;
-    //     }
-    // }
+    getters:{
+        // getLoginInfo:function (state) {
+        //     return state.usertype;
+        // }
+    },
     mutations:{
-        changeUsertype(state,Vtype){
-            state.usertype=Vtype;
-        }
+        changeUserType(state, payload) {
+            state.usertype = payload.Vtype;
+        },
+        loginInfo(state,payload){
+            state.username=payload.username;
+            state.usertype=payload.usertype;
+            state.userId=payload.userId;
+        },
+        userHomeInfo(state,payload){
+            state.userName = payload.userName;
+            state.IDNumber = payload.IDNumber;
+            state.email = payload.email;
+            state.telephone = payload.telephone;
+            state.address = payload.address;
+            state.pic = payload.pic;
+        },
+        // setInfo(state,payload){
+        //     state.userName = payload.userName;
+        //     state.IDNumber = payload.IDNumber;
+        //     state.email = payload.email;
+        //     state.telephone = payload.telephone;
+        //     state.address = payload.address;
+        //     state.pic = payload.pic;
+        // }
+
     },
-    actions:{
-        changeUsertypeFun(context,Vtype){
-            context.commit("changeUsertype",Vtype);
-        }
+
+    actions: {
+        // changeUserTypeFun(context) {
+        //     context.commit("changeUserType");
+        // }
     }
-})
+});
 
 export default store

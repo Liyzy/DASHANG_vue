@@ -6,9 +6,15 @@
             <Header></Header>
         </el-header>
         <el-main class="homeMain">
-            <div v-if="this.$store.state.usertype=='ordinaryUser'"><User></User></div>
-            <div v-if="this.$store.state.usertype=='property'"><manager></manager></div>
-            <div v-if="this.$store.state.usertype=='vendor'"><vender></vender></div>
+            <div v-if="this.$store.state.usertype=='1'">
+                <User></User>
+            </div>
+            <div v-if="this.$store.state.usertype=='2'">
+                <manager></manager>
+            </div>
+            <div v-if="this.$store.state.usertype=='3'">
+                <vendor></vendor>
+            </div>
         </el-main>
         <el-footer class="homeFooter">
             <Footer></Footer>
@@ -22,12 +28,12 @@
     import Footer from "../../components/Footer";
     import User from "./page/user";
     import Manager from "./page/manager";
-    import Vender from "./page/vender";
+    import Vendor from "./page/vendor";
 
     export default {
         name: "home",
         components:{
-            Vender,
+            Vendor,
             Manager,
             Header,
             Footer,
@@ -37,7 +43,7 @@
         },
         data(){
             return{
-                usertype: '用户'
+                usertype: ''
             }
         },
         methods: {
@@ -61,7 +67,8 @@
         /*display: flex;*/
         /*align-items: center;*/
     }
-    .homeMain{
+
+    .homeMain {
         height: 100%;
         width: 100%;
         padding: 0;
@@ -71,13 +78,14 @@
         /*    margin-left:-20px;*/
         /*margin-right:-18px;*/
     }
-    .homeFooter{
+
+    .homeFooter {
         height: 100%;
         width: 100%;
         background-color: #373f41;
         display: flex;
-        position:absolute;
-        bottom:0%;
+        position: absolute;
+        bottom: 0;
         align-items: center;
     }
 </style>

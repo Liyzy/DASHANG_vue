@@ -1,35 +1,29 @@
-<template>
-  <div>
-    <el-row>
-      <el-button type="primary" size="medium" plain>发送</el-button>
-      <el-button type="primary" size="medium" plain>存草稿</el-button>
-      <el-button type="primary" size="medium" plain>取消</el-button>
-    </el-row>
+<template>  
     <div>
-      <table>
+      <table class="open">
         <tbody>
           <tr>
-            <th>收件人：</th>
+            <th><span>收件人：</span></th>
             <td>
-              <el-input v-model="input" placeholder="请输入内容"></el-input>
+              <el-input v-model="inputTo" placeholder="请输入内容"></el-input>
             </td>
           </tr>
           <tr>
-            <th>主题：</th>
+            <th><span>主题：</span></th>
             <td>
-              <el-input v-model="input" placeholder="请输入内容"></el-input>
+              <el-input v-model="inputTitle" placeholder="请输入内容"></el-input>
             </td>
           </tr>
           <tr>
-            <th rowspan="30">正文：</th>
+            <th rowspan="30" style="display: flex; justify-content: flex-end;"><span>正文：</span></th>
             <td>
-              <textarea class="" rows="30" cols="70"></textarea>
+              <textarea v-model="inputText" class="" rows="30" cols="70"></textarea>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-  </div>
+ 
 </template>
 
 <script>
@@ -37,9 +31,25 @@ export default {
   name: "write",
   data() {
     return {
-      input: ""
+      from:'',
+      inputTo: '',
+      inputTitle: '',
+      time:'',
+      inputText:''
     };
   }
 };
 </script>
+<style scoped>
+
+table.open tr{
+  height: 50px;
+  padding: 5px;
+}
+table.open th{
+  width: 80px;
+  text-align: right;
+}
+
+</style>
 

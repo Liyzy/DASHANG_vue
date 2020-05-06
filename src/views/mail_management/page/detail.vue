@@ -3,7 +3,7 @@
     <buttongroup></buttongroup>
     <div class="information">
       <div class="information_left">
-        <img src="src/views/mail_management/mail_assets/01.gif" style="width: 100px; height: 100px" />
+        <img src="../mail_assets/01.gif" style="width: 100px; height: 100px" />
         <!-- @/assets/01.gif -->
       </div>
 
@@ -94,22 +94,22 @@ export default {
 </script>
 
 <style scoped>
-/*.el-input__inner{*/
-/*    padding-left: 20px;*/
-/*    padding-right: 20px;*/
-/*}*/
-/*#simpleinput {*/
-/*  width: 200px;*/
-/*}*/
-/*.information_right,*/
-/*.information_left {*/
-/*  display: inline-block;*/
-/*  margin: 10px;*/
-/*  line-height: 30px;*/
-/*}*/
-/*.el-tabs__content,*/
-/*#pane-1,*/
-/*#detail {*/
-/*  height: 100%;*/
-/*}*/
+.el-input__inner{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#simpleinput {
+  width: 200px;
+}
+.information_right,
+.information_left {
+  display: inline-block;
+  margin: 10px;
+  line-height: 30px;
+}
+.el-tabs__content,
+#pane-1,
+#detail {
+  height: 100%;
+}
 </style>

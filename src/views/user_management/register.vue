@@ -1,41 +1,43 @@
 <template>
     <div class="register_container">
-        <div class="regBG">
+        <div>
             <div class="register_box">
-            <!-- logo -->
-            <div class="logo">
-                <img src="../../assets/images/logo/logo.jpg" alt=""/>
-            </div>
-            <!-- 注册表单 -->
-            <div>
-                <el-form ref="registerFormRef" :model="registerForm" :rules="registerFormRules" label-width="90px" class="register_form">
-                    <el-form-item label="用户名:" prop="username">
-                        <el-input v-model="registerForm.username" prefix-icon="el-icon-user" autocomplete="off"></el-input>
-                    </el-form-item>
-                    <el-form-item label="密码:" prop="password">
-                        <el-input v-model="registerForm.password" prefix-icon="el-icon-lock" type="password" autocomplete="off"></el-input>
-                    </el-form-item>
-                    <el-form-item label="确认密码:" prop="checkPassword">
-                        <el-input v-model="registerForm.checkPassword" prefix-icon="el-icon-lock" type="password" autocomplete="off"></el-input>
-                    </el-form-item>
-                    <el-form-item label="用户类型:" prop="usertype">
-                        <el-select v-model="registerForm.usertype" placeholder="请选择用户类型">
-                            <el-option label="用户" value="ordinaryUser"></el-option>
-                            <el-option label="物业" value="property "></el-option>
-                            <el-option label="厂商" value="vendor"></el-option>
-                        </el-select>
-                    </el-form-item>
+                <!-- logo -->
+                <div class="logo">
+                    <img src="../../assets/images/logo/logo.jpg" alt=""/>
+                </div>
+                <!-- 注册表单 -->
+                <div>
+                    <el-form ref="registerFormRef" :model="registerForm" :rules="registerFormRules" label-width="90px"
+                             class="register_form">
+                        <el-form-item label="用户名:" prop="username">
+                            <el-input v-model="registerForm.username" prefix-icon="el-icon-user"
+                                      autocomplete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="密码:" prop="password">
+                            <el-input v-model="registerForm.password" prefix-icon="el-icon-lock" type="password"
+                                      autocomplete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="确认密码:" prop="checkPassword">
+                            <el-input v-model="registerForm.checkPassword" prefix-icon="el-icon-lock" type="password"
+                                      autocomplete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="用户类型:" prop="usertype">
+                            <el-select v-model="registerForm.usertype" placeholder="请选择用户类型">
+                                <el-option label="用户" value="1"></el-option>
+<!--                                <el-option label="物业" value="2 "></el-option>-->
+                                <el-option label="厂商" value="3"></el-option>
+                            </el-select>
+                        </el-form-item>
 
-                    <el-form-item class="register_btn_area">
-                        <el-button type="primary" round @click="register">注册</el-button>
-                    </el-form-item>
-                </el-form>
+                        <el-form-item class="register_btn_area">
+                            <el-button type="primary" round @click="register">注册</el-button>
+                        </el-form-item>
+                    </el-form>
+                </div>
             </div>
         </div>
-        </div>
-        <div class="registerFooter">
-            <Footer></Footer>
-        </div>
+        <Footer></Footer>
     </div>
 </template>
 
@@ -93,7 +95,20 @@
         methods: {
             register() {
                 // 注册逻辑代码
-                this.$router.push({path: '/login'});
+                this.$http({
+                    url: '/register',
+                    method: 'post',
+                    data: {
+                        userName: this.registerForm.username,
+                        password: this.registerForm.password,
+                        userType: this.registerForm.usertype,
+                    },
+                }).then((response) => {
+                    console.log(response);
+                    this.$router.push({path: '/login'});
+                }).catch((error) => {
+                    console.log(error);
+                });
             }
         }
     }
@@ -101,17 +116,13 @@
 
 <style scoped>
     .register_container {
-        height: 860px;
+        height: 100%;
         display: flex;
-        flex-direction:column;
+        flex-direction: column;
+        background: url("../../assets/images/background/loginbackground.jpg") no-repeat center;
+        background-size: 100% 100%;
         /*position: absolute;*/
         /*background-color: #A0CFFF;*/
-    }
-    .regBG{
-        width: 100%;
-        height: 100%;
-        background-image: url("../../assets/images/background/loginbackground.jpg") ;
-        background-size: 100% 100%;
     }
 
     .register_box {
@@ -152,11 +163,5 @@
 
     .register_btn_area button {
         width: 200px;
-    }
-    .registerFooter{
-        height: 120px;
-        width: 100%;
-        position: fixed;
-        bottom:0px;
     }
 </style>

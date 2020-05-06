@@ -1,48 +1,51 @@
 <template>
     <div class="login_container">
-<!--        <span>{{this.$store.state.usertype}}</span>-->
-        <div class="loginBG">
+        <div><span>{{this.$store.state.usertype}}</span></div>
+        <div>
             <div class="login_box">
-            <!-- logo -->
-            <div class="logo">
-                <img src="../../assets/images/logo/logo.jpg" alt=""/>
-            </div>
-            <!-- 登录表单 -->
-            <div>
-                <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="90px"
-                         class="login_form">
-                    <el-form-item label="用户名:" prop="username">
-                        <el-input v-model="loginForm.username" prefix-icon="el-icon-user" autocomplete="off"></el-input>
-                    </el-form-item>
-                    <el-form-item label="密码:" prop="password">
-                        <el-input v-model="loginForm.password" prefix-icon="el-icon-lock" type="password"
-                                  autocomplete="off"></el-input>
-                    </el-form-item>
-                    <el-form-item label="用户类型:" prop="usertype">
-                        <el-select v-model="loginForm.usertype" placeholder="请选择用户类型" @change="selectChange">
-                            <el-option label="用户" value="ordinaryUser"></el-option>
-                            <el-option label="物业" value="property"></el-option>
-                            <el-option label="厂商" value="vendor"></el-option>
-                        </el-select>
-                    </el-form-item>
+                <!-- logo -->
+                <div class="logo">
+                    <img src="../../assets/images/logo/logo.jpg" alt=""/>
+                </div>
+                <!-- 登录表单 -->
+                <div>
+                    <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" label-width="90px"
+                             class="login_form">
+                        <el-form-item label="用户名:" prop="username">
+                            <el-input v-model="loginForm.username" prefix-icon="el-icon-user"
+                                      autocomplete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="密码:" prop="password">
+                            <el-input v-model="loginForm.password" prefix-icon="el-icon-lock" type="password"
+                                      autocomplete="off"></el-input>
+                        </el-form-item>
+                        <el-form-item label="用户类型:" prop="usertype">
+                            <el-select v-model="loginForm.usertype" placeholder="请选择用户类型" @change="selectChange">
+                                <!-- 使用1表示用户 2表示物业 3表示厂商 -->
+                                <el-option label="用户" value="1"></el-option>
+                                <el-option label="物业" value="2"></el-option>
+                                <el-option label="厂商" value="3"></el-option>
+                            </el-select>
+                        </el-form-item>
 
-                    <div class="registerLink">
-                        <el-link href="#/register">没有账号？立即注册</el-link>
-                    </div>
+                        <div class="registerLink">
+                            <el-link href="#/register">没有账号？立即注册</el-link>
+                        </div>
 
-                    <el-form-item class="login_btn_area">
-                        <el-button type="primary" round @click="login">登录</el-button>
-                    </el-form-item>
-                </el-form>
+                        <el-form-item class="login_btn_area">
+                            <el-button type="primary" round @click="login">登录</el-button>
+                        </el-form-item>
+                    </el-form>
+                </div>
             </div>
         </div>
-        </div>
-        <div class="loginFooter"><Footer></Footer></div>
+        <Footer></Footer>
     </div>
 </template>
 
 <script>
     import Footer from '../../components/Footer'
+    import store from '../../store/index'
 
     export default {
         name: "Login",
@@ -59,10 +62,9 @@
                 }
             };
             return {
-                Vtype:'123',
                 loginForm: {
-                    username: 'admin',
-                    password: '123456',
+                    username: '',
+                    password: '',
                     usertype: '',
                 },
 
@@ -80,35 +82,85 @@
                 }
             }
         },
+
+        // created() {
+        //     this.getUserInfo()
+        // },
         methods: {
-            login() {
+            login: function () {
                 // 登录的逻辑代码
-                    this.$router.push('/home')
+                this.$http({
+                    url: '/login',
+                    method: 'post',
+                    data: {
+                        userName: this.loginForm.username,
+                        password: this.loginForm.password,
+                        userType: this.loginForm.usertype,
+                    },
+                }).then((response) => {
+                    console.log(response);
+                    // response.data才是获得response中的数据
+                    this.$store.commit({
+                        type:'loginInfo',
+                        username:response.data.detail.userName,
+                        usertype:response.data.detail.userType,
+                        userId:response.data.detail.userId
+                    });
+                    // store.state.username = response.data.detail.userName;
+                    // store.state.usertype = response.data.detail.userType;
+                    // store.state.userId = response.data.detail.userId;
+
+                    this.$router.push({path: '/home'});
+                }).catch((error) => {
+                    console.log(error);
+                })
+                this.getUserInfo();
             },
-            selectChange(Vtype){
-                // this.Vtype=Vtype;
-                this.$store.dispatch("changeUsertypeFun",Vtype);
+            async getUserInfo() {
+                // const {data:res}=await this.$http.post('getAll',{
+                //     params:this.queryInfo
+                // })
+                this.$http({
+                    url:'/getUserInfo',
+                    method:'get',
+                    params: {
+                        userId: this.$store.state.userId,
+                    },
+                }).then((response)=>{
+                    this.$store.commit({
+                        type:'userHomeInfo',
+                        userName: response.data.userName,
+                        IDNumber: response.data.cid,
+                        email: response.data.email,
+                        telephone: response.data.telNumber,
+                        address: response.data.address,
+                        pic: response.data.pic,
+                    });
+
+                }).catch((error)=>{
+                    console.log(error);
+                })
+
+
+                console.log(this.managerGoodsList)
+            },
+
+            selectChange(Vtype) {
+                this.loginForm.usertype = Vtype;
+                this.$store.commit("changeUserType", Vtype);
             }
         }
     }
+
 </script>
 
 <style scoped>
     .login_container {
-        height: 860px;
-        width: 100%;
-        display: flex;
-        flex-direction:column;
-    }
-    .loginBG{
         height: 100%;
         width: 100%;
-        /*margin: 0 auto;*/
-        /*position: absolute;*/
-        /*left: 50%;*/
-        /*top: 50%;*/
-        /*transform: translate(-50%, -50%);*/
-        background-image: url("../../assets/images/background/loginbackground.jpg") ;
+        display: flex;
+        flex-direction: column;
+        background: url("../../assets/images/background/loginbackground.jpg") no-repeat center;
         background-size: 100% 100%;
     }
 
@@ -156,12 +208,5 @@
 
     .login_btn_area button {
         width: 200px;
-    }
-    .loginFooter{
-        height: 120px;
-        width: 100%;
-        position:fixed;
-        /*top: 20px;*/
-        bottom:0px;
     }
 </style>
