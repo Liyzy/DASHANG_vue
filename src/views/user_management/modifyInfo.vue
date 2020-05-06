@@ -9,7 +9,7 @@
                     <el-form-item label="上传头像:">
                         <el-upload
                                 class="avatar-uploader"
-                                action="http://47.107.115.161:5227/"
+                                action="http://47.107.115.161:5227/imgUpload"
                                 :show-file-list="false"
                                 :on-success="handleAvatarSuccess"
                                 :before-upload="beforeAvatarUpload">

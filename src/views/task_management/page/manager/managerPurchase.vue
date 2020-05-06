@@ -79,6 +79,7 @@
             <el-table-column
                     label="商品ID"
                     width="200px"
+                    sortable
                     prop="PRODUCT_ID">
             </el-table-column>
             <el-table-column
@@ -89,6 +90,7 @@
             <el-table-column
                     label="采购数量"
                     width="200px"
+                    sortable
                     prop="NUMS">
             </el-table-column>
 <!--            <el-table-column-->

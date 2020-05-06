@@ -14,8 +14,8 @@
 
         <el-table
                 :data="vendorList"
-                style="width: 100%;height: 400px"
-                max-height="400px">
+                style="width: 100%;height: 600px"
+                max-height="600px">
             <el-table-column type="expand">
                 <template slot-scope="props">
                     <el-form label-position="left" inline class="demo-table-expand">
@@ -88,11 +88,12 @@
                     label="厂商 ID"
                     width="200px"
                     align="center"
+                    sortable
                     prop="USER_ID">
             </el-table-column>
             <el-table-column
                     label="厂商名称"
-                    width="200px"
+                    width="600px"
                     align="center"
                     prop="USER_NAME">
             </el-table-column>

@@ -6,7 +6,7 @@
         <div style="width:500px;margin: 0 auto">
             <el-upload
                     class="avatar-uploader"
-                    action="https://jsonplaceholder.typicode.com/posts/"
+                    action="http://47.107.115.161:5227/imgUpload"
                     :show-file-list="false"
                     :on-success="handleAvatarSuccess"
                     :before-upload="beforeAvatarUpload">
@@ -84,7 +84,7 @@
                     data:{
                         PRODUCT_NAME:this.product,
                         PRODUCT_BRAND:this.brand,
-                        PRICE:this.price,
+                        PRICE:this.imageUrl,
                         DESCRIPTION:this.desc,
                         PIC:this.imageUrl,
                         USER_ID:this.$store.state.userId,

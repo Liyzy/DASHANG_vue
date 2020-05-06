@@ -64,12 +64,14 @@
                     label="商品品牌"
                     width="200px"
                     align="center"
+                    sortable
                     prop="PRODUCT_BRAND">
             </el-table-column>
             <el-table-column
                     label="商品售价"
                     width="200px"
                     align="center"
+                    sortable
                     prop="PRICE">
             </el-table-column>
 <!--            <el-table-column-->

@@ -22,7 +22,8 @@
                             <span>{{ props.row.ORDER_ID }}</span>
                         </el-form-item>
                         <el-form-item label="订单状态：">
-                            <span>{{ props.row.RECEIPT }}</span>
+                            <span v-if="props.row.RECEIPT==0">待接单</span>
+                            <span v-if="props.row.RECEIPT==1">已接单</span>
                         </el-form-item>
                         <el-form-item label="收货人姓名：">
                             <span>{{name}}</span>
@@ -67,6 +68,7 @@
                     label="订单 ID"
                     width="200px"
                     align="center"
+                    sortable
                     prop="ORDER_ID">
             </el-table-column>
             <el-table-column
@@ -74,11 +76,11 @@
                     width="200px"
                     align="center"
                     prop="RECEIPT"
-                    :filters="[{ text: '待接单', value: '待接单' },
-                    { text: '待收货', value: '待收货' },
-                    { text: '已完成', value: '已完成' }]"
-                    :filter-method="filterTag"
-                    filter-placement="bottom-end">
+                    sortable>
+                <template slot-scope="scope">
+                    <span v-if="scope.row.RECEIPT==0">待接单</span>
+                    <span v-if="scope.row.RECEIPT==1">已接单</span>
+                </template>
             </el-table-column>
             <el-table-column
                     label="商品名称"

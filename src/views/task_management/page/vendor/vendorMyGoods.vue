@@ -51,6 +51,7 @@
             <el-table-column
                     label="商品 ID"
                     width="200px"
+                    sortable
                     prop="PRODUCT_ID">
             </el-table-column>
             <el-table-column

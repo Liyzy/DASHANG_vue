@@ -35,7 +35,8 @@
                             <span>{{ props.row.NUMS }}</span>
                         </el-form-item>
                         <el-form-item label="任务状态：">
-                            <span>{{ props.row.TASK_STATE }}</span>
+                            <span v-if="props.row.TASK_STATE==0">待接受</span>
+                            <span v-if="props.row.TASK_STATE==1">已接受</span>
                         </el-form-item>
 <!--                        <el-form-item label="采购数量：">-->
 <!--                            <span>{{ props.row.taskAmount }}</span>-->
@@ -65,18 +66,20 @@
             <el-table-column
                     label="任务 ID"
                     width="200px"
+                    sortable
                     prop="TASK_ID">
             </el-table-column>
             <el-table-column
                     label="任务状态"
                     width="200px"
                     prop="TASK_STATE"
-                    :filters="[{ text: '待下单', value: '待下单' },
-                    { text: '待收货', value: '待收货' },
-                    { text: '已完成', value: '已完成' }]"
-                    :filter-method="filterTag"
-                    filter-placement="bottom-end">
+                    sortable>
+                <template slot-scope="scope">
+                    <span v-if="scope.row.TASK_STATE==0">待接受</span>
+                    <span v-if="scope.row.TASK_STATE==1">已接受</span>
+                </template>
             </el-table-column>
+
             <el-table-column
                     label="任务商品"
                     width="200px"

@@ -53,11 +53,12 @@
                     label="商品 ID"
                     width="200px"
                     align="center"
+                    sortable
                     prop="PRODUCT_ID">
             </el-table-column>
             <el-table-column
                     label="商品名称"
-                    width="200px"
+                    width="400px"
                     align="center"
                     prop="PRODUCT_NAME">
             </el-table-column>
@@ -69,8 +70,9 @@
 <!--            </el-table-column>-->
             <el-table-column
                     label="商品售价"
-                    width="200px"
+                    width="300px"
                     align="center"
+                    sortable
                     prop="PRICE">
             </el-table-column>
 <!--            <el-table-column-->
