@@ -38,6 +38,7 @@
         <div style="width:500px;margin: 0 auto;padding-top: 10px">
             <el-button type="primary" @click="addNew" style="margin-left: 0px">注册</el-button>
             <el-button type="primary" @click="reset" style="margin-left: 20px">重置</el-button>
+
         </div>
     </div>
 </template>
@@ -92,6 +93,12 @@
                         USER_TYPE:3,
                     }
                 }).then((response)=>{
+                    this.$message({
+                        showClose: true,
+                        message: (response.data.message==0) ? '注册失败！' : '注册成功！',
+                        type: (response.data.message==0) ? 'error' : 'success',
+                        center: true
+                    });
 
                     // this.total=response.data;
 
