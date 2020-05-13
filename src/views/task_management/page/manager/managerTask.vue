@@ -71,6 +71,17 @@
                     prop="TASK_ID">
             </el-table-column>
             <el-table-column
+                    label="厂商 ID"
+                    width="200px"
+                    align="center"
+                    sortable
+                    prop="USER_ID">
+                <template slot-scope="scope">
+                    <span v-if="scope.row.USER_ID==0">无</span>
+                    <span v-if="scope.row.USER_ID!=0">{{scope.row.USER_ID}}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
                     label="任务状态"
                     width="200px"
                     prop="TASK_STATE"

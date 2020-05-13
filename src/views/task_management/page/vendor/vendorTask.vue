@@ -80,11 +80,16 @@
                     prop="TASK_ID">
             </el-table-column>
             <el-table-column
-                    label="任务厂商 ID"
+                    label="任务厂商"
                     width="200px"
                     align="center"
                     sortable
                     prop="USER_ID">
+                <template slot-scope="scope">
+                    <span v-if="scope.row.USER_ID==0">无</span>
+                    <span v-if="scope.row.USER_ID==userId">本厂</span>
+                    <span v-if="scope.row.USER_ID!=userId && scope.row.USER_ID!=0">其他厂商</span>
+                </template>
             </el-table-column>
             <el-table-column
                     label="任务状态"
@@ -192,6 +197,7 @@
         inject:['reload'],
         data() {
             return {
+                userId:this.$store.state.userId,
                 input: '',
                 centerDialogVisible: false,
                 number:0,
