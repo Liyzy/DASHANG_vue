@@ -75,6 +75,9 @@
                     align="center"
                     sortable
                     prop="PRICE">
+                <template slot-scope="scope">
+                    <span>{{scope.row.PRICE}}元</span>
+                </template>
             </el-table-column>
 <!--            <el-table-column-->
 <!--                    label="本厂报价"-->
@@ -141,6 +144,7 @@
 <script>
     export default {
         name: "vendorMyGoods",
+        inject:['reload'],
         data() {
             return {
                 input: '',
@@ -195,6 +199,7 @@
                 })
                 this.centerDialogVisible = false;
                 this.getMyGoods();
+                this.reload()
             },
 
             handleSizeChange(newSize) {

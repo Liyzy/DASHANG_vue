@@ -1,13 +1,29 @@
 <template>
   <div id="app">
     <!-- 路由占位符 -->
-    <router-view></router-view>
+    <router-view v-if="isRouterAlive"></router-view>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'app'
+    name: 'app',
+    provide(){
+      return {
+        reload: this.reload
+      }
+    },
+    data(){
+      return {
+        isRouterAlive:true
+      }
+    },
+    methods:{
+      reload(){
+        this.isRouterAlive=false
+        this.$nextTick(()=>this.isRouterAlive=true)
+      }
+    },
   }
 </script>
 

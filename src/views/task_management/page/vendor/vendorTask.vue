@@ -80,6 +80,13 @@
                     prop="TASK_ID">
             </el-table-column>
             <el-table-column
+                    label="任务厂商 ID"
+                    width="200px"
+                    align="center"
+                    sortable
+                    prop="USER_ID">
+            </el-table-column>
+            <el-table-column
                     label="任务状态"
                     width="200px"
                     align="center"
@@ -182,6 +189,7 @@
 <script>
     export default {
         name: "vendorTask",
+        inject:['reload'],
         data() {
             return {
                 input: '',
@@ -247,6 +255,7 @@
                 this.centerDialogVisible = false;
                 // this.myPrice[this.number].price=1;
                 this.getTask();
+                this.reload()
             },
 
             handleSizeChange(newSize) {

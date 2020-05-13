@@ -29,7 +29,7 @@
                             <span>{{ props.row.PRODUCT_ID }}</span>
                         </el-form-item>
                         <el-form-item label="商品售价：">
-                            <span>{{ props.row.PRICE }}</span>
+                            <span>{{ props.row.PRICE }}元</span>
                         </el-form-item>
                         <el-form-item label="商品描述：">
                             <span>{{ props.row.DESCRIPTION }}</span>
@@ -70,6 +70,9 @@
                     align="center"
                     sortable
                     prop="PRICE">
+                <template slot-scope="scope">
+                    <span>{{scope.row.PRICE}}元</span>
+                </template>
             </el-table-column>
 <!--            <el-table-column-->
 <!--                    label="本厂报价"-->
@@ -142,6 +145,7 @@
 <script>
     export default {
         name: "vendorGoods",
+        inject:['reload'],
         data() {
             return {
                 centerDialogVisible: false,
@@ -197,7 +201,12 @@
                         PRICE:this.goodsPrice[this.number].price,
                     }
                 }).then((response)=>{
-                    this.goodsList=response.data;
+                    this.$message({
+                        showClose: true,
+                        message: (response.data.message==0) ? '注册失败！' : '注册成功！',
+                        type: (response.data.message==0) ? 'error' : 'success',
+                        center: true
+                    });
 
                 }).catch((error)=>{
                     console.log(error);

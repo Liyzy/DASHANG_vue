@@ -22,8 +22,8 @@
                             <span>{{ props.row.ORDER_ID }}</span>
                         </el-form-item>
                         <el-form-item label="订单状态：">
-                            <span v-if="props.row.RECEIPT==0">待接单</span>
-                            <span v-if="props.row.RECEIPT==1">已接单</span>
+                            <span v-if="props.row.RECEIPT==0">待收货</span>
+                            <span v-if="props.row.RECEIPT==1">已收货</span>
                         </el-form-item>
                         <el-form-item label="收货人姓名：">
                             <span>{{name}}</span>
@@ -48,7 +48,7 @@
 <!--                            <el-input-number v-model="props.row.NUMS" @change="handleChange" :min="1" :max="9999" label="数量"></el-input-number>-->
                         </el-form-item>
                         <el-form-item label="总价：">
-                            <span>{{ props.row.PRICE * props.row.NUMS }}</span>
+                            <span>{{ props.row.PRICE * props.row.NUMS }}元</span>
                         </el-form-item>
 <!--                        <el-form-item style="display: block">-->
 <!--                            <el-button type="primary" style="margin-top: 10px;">立即下单</el-button>-->
@@ -78,8 +78,8 @@
                     prop="RECEIPT"
                     sortable>
                 <template slot-scope="scope">
-                    <span v-if="scope.row.RECEIPT==0">待接单</span>
-                    <span v-if="scope.row.RECEIPT==1">已接单</span>
+                    <span v-if="scope.row.RECEIPT==0">待收货</span>
+                    <span v-if="scope.row.RECEIPT==1">已收货</span>
                 </template>
             </el-table-column>
             <el-table-column
@@ -142,6 +142,7 @@
 <script>
     export default {
         name: "userOrder",
+        inject:['reload'],
         data() {
             return {
                 centerDialogVisible: false,
@@ -193,6 +194,20 @@
             //
             //     console.log(this.orderList)
             // },
+            async getTotal(){
+                this.$http({
+                    url:'/getUserOrderTotal',
+                    method:'get',
+                    params:{
+                        userId:this.$store.state.userId,
+                    }
+
+                }).then((response)=>{
+                    this.total = response.data;
+                }).catch((error)=>{
+                    console.log(error);
+                })
+            },
             async getUserOrder() {
                 // this.$http.get('showAllOrder').then((response)=>{
                 //     this.orderList=response.data;
@@ -208,6 +223,7 @@
 
                 }).then((response)=>{
                     this.orderList = response.data;
+                    this.getTotal();
                 }).catch((error)=>{
                     console.log(error);
                 })
@@ -258,6 +274,7 @@
                 });
                 this.getUserOrder();
                 this.centerDialogVisible = false;
+                this.reload();
                 // console.log(this.orderList[this.number].RECEIPT);
             },
 

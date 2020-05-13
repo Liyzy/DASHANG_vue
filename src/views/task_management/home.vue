@@ -83,9 +83,9 @@
         height: 100%;
         width: 100%;
         background-color: #373f41;
-        display: flex;
+        /*display: flex;*/
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         align-items: center;
     }
 </style>

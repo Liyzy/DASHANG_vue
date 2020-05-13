@@ -29,7 +29,7 @@
                             <span>{{ props.row.PRODUCT_NAME }}</span>
                         </el-form-item>
                         <el-form-item label="报价：">
-                            <span>{{ props.row.PRICE }}</span>
+                            <span>{{ props.row.PRICE }}元</span>
                         </el-form-item>
                         <el-form-item label="商品数量：">
                             <span>{{ props.row.NUMS }}</span>
@@ -48,7 +48,7 @@
 <!--                            <span>{{ props.row.telephoneVender }}</span>-->
 <!--                        </el-form-item>-->
                         <el-form-item label="总价：">
-                            <span>{{ props.row.NUMS*props.row.PRICE }}</span>
+                            <span>{{ props.row.NUMS*props.row.PRICE }}元</span>
                         </el-form-item>
                         <el-form-item>
                             <el-button type="primary" style="margin-top: 20px" :disabled="props.row.TASK_STATE==0" @click="fun1(props.row.TASK_ID)">拒绝</el-button>
@@ -66,6 +66,7 @@
             <el-table-column
                     label="任务 ID"
                     width="200px"
+                    align="center"
                     sortable
                     prop="TASK_ID">
             </el-table-column>
@@ -73,6 +74,7 @@
                     label="任务状态"
                     width="200px"
                     prop="TASK_STATE"
+                    align="center"
                     sortable>
                 <template slot-scope="scope">
                     <span v-if="scope.row.TASK_STATE==0">待接受</span>
@@ -83,19 +85,25 @@
             <el-table-column
                     label="任务商品"
                     width="200px"
+                    align="center"
                     prop="PRODUCT_NAME">
             </el-table-column>
             <el-table-column
                     label="采购数量"
                     width="200px"
                     sortable
+                    align="center"
                     prop="NUMS">
             </el-table-column>
             <el-table-column
                     label="报价"
                     width="200px"
                     sortable
+                    align="center"
                     prop="PRICE">
+                <template slot-scope="scope">
+                    <span>{{scope.row.PRICE}}元</span>
+                </template>
             </el-table-column>
 <!--            <el-table-column-->
 <!--                    label="总价"-->
@@ -121,7 +129,7 @@
                     align="center"
                     width="100px">
                 <template slot-scope="scope">
-                    <el-button type="primary" size="small" :disabled="scope.row.TASK_STATE==1" @click="fun2(scope.row.TASK_ID)">完成</el-button>
+                    <el-button type="primary" size="small" :disabled="scope.row.TASK_STATE==0" @click="fun2(scope.row.TASK_ID)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -148,11 +156,11 @@
                 append-to-body
                 center>
             <div style="text-align: center">
-                <div>是否确定完成？</div>
+                <div>是否删除？</div>
             </div>
             <span slot="footer" class="dialog-footer">
                             <el-button @click="centerDialogVisible2 = false">取 消</el-button>
-                            <el-button type="primary" @click="buy2">确 定</el-button>
+                            <el-button type="primary" @click="buy2">删除</el-button>
                         </span>
         </el-dialog>
 
@@ -174,6 +182,7 @@
 <script>
     export default {
         name: "managerTask",
+        inject:['reload'],
         data() {
             return {
                 input: '',
@@ -230,6 +239,7 @@
                 this.centerDialogVisible1 = false;
                 this.getManagerTask();
                 this.centerDialogVisible1 = false;
+                this.reload()
             },
 
             fun2(taskId){
@@ -250,6 +260,7 @@
                 })
                 this.centerDialogVisible2 = false;
                 this.getManagerTask();
+                this.reload()
             },
 
             async getTotal(){

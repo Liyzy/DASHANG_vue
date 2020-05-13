@@ -46,6 +46,7 @@
 <script>
     export default {
         name: "vendorNew",
+        inject:['reload'],
         data() {
             return {
                 imageUrl: '',
@@ -99,6 +100,7 @@
                         type: (response.data.message==0) ? 'error' : 'success',
                         center: true
                     });
+                    this.reload()
 
                     // this.total=response.data;
 

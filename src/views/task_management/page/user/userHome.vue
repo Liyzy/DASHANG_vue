@@ -28,6 +28,7 @@
 
     export default {
         name: "userHome",
+        inject:['reload'],
         data() {
             return {
                 avatarURL: this.$store.state.pic,  // 登录成功后动态获取

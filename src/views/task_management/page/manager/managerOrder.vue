@@ -23,8 +23,8 @@
                             <span>{{ props.row.ORDER_ID }}</span>
                         </el-form-item>
                         <el-form-item label="订单状态：">
-                            <span v-if="props.row.RECEIPT==0">待接单</span>
-                            <span v-if="props.row.RECEIPT==1">已接单</span>
+                            <span v-if="props.row.RECEIPT==0">待收货</span>
+                            <span v-if="props.row.RECEIPT==1">已收货</span>
                         </el-form-item>
                         <el-form-item label="收货人ID：">
                             <span>{{ props.row.USER_ID }}</span>
@@ -36,7 +36,7 @@
                             <span>{{ props.row.NUMS }}</span>
                         </el-form-item>
                         <el-form-item label="商品单价：">
-                            <span>{{ props.row.PRICE }}</span>
+                            <span>{{ props.row.PRICE }}元</span>
                         </el-form-item>
 <!--                        <el-form-item label="订单内容：" style="display: block">-->
 <!--                            <el-table-->
@@ -76,7 +76,7 @@
 <!--                            <el-button type="primary" style="margin-top: 20px">到货</el-button>-->
 <!--                        </el-form-item>-->
                         <el-form-item label="总价：">
-                            <span>{{ props.row.PRICE*props.row.NUMS }}</span>
+                            <span>{{ props.row.PRICE*props.row.NUMS }}元</span>
                         </el-form-item>
                     </el-form>
                 </template>
@@ -102,8 +102,8 @@
                     prop="RECEIPT"
                     sortable>
                 <template slot-scope="scope">
-                    <span v-if="scope.row.RECEIPT==0">待接单</span>
-                    <span v-if="scope.row.RECEIPT==1">已接单</span>
+                    <span v-if="scope.row.RECEIPT==0">待收货</span>
+                    <span v-if="scope.row.RECEIPT==1">已收货</span>
                 </template>
             </el-table-column>
             <el-table-column
@@ -181,7 +181,7 @@
                     page:1,
                     size:10
                 },
-                total:1000,
+                total:10,
                 goodsTableData: [{
                     goodsId:'12312321',
                     goodsName:'三星智能手机S10旗舰版全网通',

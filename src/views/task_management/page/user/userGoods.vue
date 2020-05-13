@@ -73,6 +73,9 @@
                     align="center"
                     sortable
                     prop="PRICE">
+                <template slot-scope="scope">
+                    <span>{{scope.row.PRICE}}元</span>
+                </template>
             </el-table-column>
 <!--            <el-table-column-->
 <!--                    label="商品介绍"-->
@@ -149,7 +152,7 @@
                 restaurants: [],
                 timeout:  null,
                 goodsList:[],
-                total:0,//总数据条数
+                total:10,//总数据条数
                 value1: true,
                 state: '',
                 tableData: [{
@@ -245,7 +248,7 @@
                     params:{
                         productId:this.goodsList[this.number].PRODUCT_ID,
                         userId:this.$store.state.userId,
-                        nums:this.number,
+                        nums:this.goodsNum[this.number].num,
                     }
                 }).then((response)=>{
                     this.goodsList=response.data;

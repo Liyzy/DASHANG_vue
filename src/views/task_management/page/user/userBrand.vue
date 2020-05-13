@@ -18,13 +18,13 @@
                     <el-col :span="3" v-for="(item) in brandList" :key="item.BRAND_ID" :offset="1">
                         <div style="margin-top:15px">
                             <el-card :body-style="{ padding: '0px'}" shadow="hover">
-                                <img :src="item.BRAND_PICTURE" class="image"/>
-                                <div style="padding: 14px;">
+                                <div style="width: 235px;height: 235px"><img :src="item.BRAND_PICTURE" class="image"/></div>
+                                <div style="padding: 14px;height: 150px">
                                     <span><el-button type="text"
                                                      style="color: black">{{item.BRAND_NAME}}</el-button></span><br>
                                     <div class="bottom">
                                         <div class="evaluate" style="font-size: 14px;margin-top: 2px">
-                                            <strong>简介：{{item.BRAND_INTRODUCTION}}</strong>
+                                            <strong style="line-height: 18px">简介：{{item.BRAND_INTRODUCTION}}</strong>
 
 <!--                                            <strong>评价：</strong>-->
 <!--                                            <el-rate-->
@@ -105,7 +105,8 @@
     }
 
     .image {
-        width: 100%;
+        width: 90%;
+        height: auto;
         display: block;
     }
 </style>

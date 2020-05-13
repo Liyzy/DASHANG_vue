@@ -35,7 +35,7 @@
                         <el-form-item label="商品售价：">
 <!--                            <el-input-number v-model="props.row.PRICE" controls-position="right" @change="handleChange" :min="0" :max="100000"></el-input-number>-->
 <!--                            <el-button type="primary" style="margin-left: 20px">确定</el-button>-->
-                            <span>{{ props.row.PRICE }}</span>
+                            <span>{{ props.row.PRICE }}元</span>
                         </el-form-item>
 
 
@@ -74,6 +74,9 @@
                     align="center"
                     sortable
                     prop="PRICE">
+                <template slot-scope="scope">
+                    <span>{{scope.row.PRICE}}元</span>
+                </template>
             </el-table-column>
 <!--            <el-table-column-->
 <!--                    label="商品状态"-->
@@ -153,7 +156,7 @@
             handleChange(value) {
                 console.log(value);
             },
-            async getTotal(){
+            getTotal(){
                 this.$http({
                     url:'/getNum',
                     method:'post',

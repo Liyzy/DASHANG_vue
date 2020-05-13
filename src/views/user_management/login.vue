@@ -136,6 +136,7 @@
                         address: response.data.detail.address,
                         pic: response.data.detail.pic,
                     });
+                    console.log(this.$store.state.pic);
 
                 }).catch((error)=>{
                     console.log(error);

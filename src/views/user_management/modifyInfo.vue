@@ -1851,6 +1851,7 @@
         methods: {
             handleAvatarSuccess(res, file) {
                 this.imageUrl = URL.createObjectURL(file.raw);
+                console.log(this.imageUrl);
             },
             beforeAvatarUpload(file) {
                 const isJPG = file.type === 'image/jpeg';
@@ -1876,18 +1877,17 @@
                         email: this.modifyForm.email,
                         cid: this.modifyForm.IDNumber,
                         pic: this.imageUrl,
-                        userId: this.$store.state.usertype,
+                        userId: this.$store.state.userId,
                     },
                 }).then((response) => {
-                    console.log(response);
                     this.$store.commit({
                         type:'userHomeInfo',
-                        userName: response.data.userName,
-                        IDNumber: response.data.cid,
-                        email: response.data.email,
-                        telephone: response.data.telNumber,
-                        address: response.data.address,
-                        pic: response.data.pic,
+                        userName: response.data.detail.userName,
+                        IDNumber: response.data.detail.cid,
+                        email: response.data.detail.email,
+                        telephone: response.data.detail.telNumber,
+                        address: response.data.detail.address,
+                        pic: response.data.detail.pic,
                     });
                     // this.$store.state.userName = response.data.detail.userName;
                     // this.$store.state.IDNumber = response.data.detail.cid;

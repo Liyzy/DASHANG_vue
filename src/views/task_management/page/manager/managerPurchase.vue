@@ -148,6 +148,7 @@
 <script>
     export default {
         name: "managerPurchase",
+        inject:['reload'],
         data() {
             return {
                 input: '',
@@ -231,6 +232,7 @@
                 })
                 this.centerDialogVisible = false;
                 this.getPurchaseList();
+                this.reload()
 
             },
             async getTotal(){
