@@ -9,7 +9,7 @@
                     <el-form-item label="上传头像:">
                         <el-upload
                                 class="avatar-uploader"
-                                action="http://47.107.115.161:5227/imgUpload"
+                                action="http://47.107.115.161:5227/uploadPic"
                                 :show-file-list="false"
                                 :on-success="handleAvatarSuccess"
                                 :before-upload="beforeAvatarUpload">
@@ -1845,12 +1845,13 @@
                     telephone: [
                         {required: true, validator: validateTelephone, trigger: 'blur'}
                     ]
-                }
+                },
             }
         },
         methods: {
             handleAvatarSuccess(res, file) {
                 this.imageUrl = URL.createObjectURL(file.raw);
+                this.imageUrl = 'http://47.107.115.161/upload/'+file.raw.name;
                 console.log(this.imageUrl);
             },
             beforeAvatarUpload(file) {
